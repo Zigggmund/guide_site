@@ -51,31 +51,11 @@ nav.bg-custom,  footer.bg-custom{
     background-color: var(--header-footer);
 }
 
-/* верхних расположение ссылок */
-/* ul {
-    display: none;
-} */
-/* .main_list_container {
-    display: flex;
-    justify-content: space-between;
-} */
-
-/* nav {
-    height: 70px !important;
+.comm-box .comm-photo .comm-photo-flex .comm-photo-img, .nav-item {
+    cursor: pointer;
 }
-
-
 
 /* main */
-
-
-.mt-40px {
-    margin-top: 40px;
-}
-
-.mt-20px {
-    margin-top: 20px;
-}
 
 .mb-40px {
     margin-bottom: 40px;
@@ -85,20 +65,15 @@ nav.bg-custom,  footer.bg-custom{
     margin-bottom: 20px;
 }
 
-.mlr-20px {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 /* introduction */
 
 /* запрос против слишком большого изображения */
-/* @media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     
     .del_on_small img {
         width: 25% !important;
     }
-} */
+}
 
 @media only screen and (max-width: 750px) {
 
@@ -112,8 +87,7 @@ nav.bg-custom,  footer.bg-custom{
     }
 }
 
-img:not(#logo) {
-    border: 2px solid var(--title-main);
+.img-intro {
     object-fit: cover;
     height: 100%;
 }
@@ -140,18 +114,29 @@ div.grey-block {
 
 /* photo */
 
-;
+.carousel-item, .img-intro {
+    border: 2px solid var(--title-main);
+}
 
 /* navigation */
 
+/* работает только вместе */
 .nav-ol li {
-    /* Не работает, выравнивание + цветные номера */
+    text-align: start !important;
+}
+#navigation li {
     text-align: start !important;
 }
 
 .nav-ol li a {
     font-size: 20px !important;
     color: var(--title-main) !important;
+    text-decoration: underline !important;
+    opacity: 1.0;
+}
+
+.nav-ol li a:hover {
+    opacity: 0.5 !important;
 }
 
 /* comments */
@@ -172,26 +157,109 @@ div.comm-box {
     padding-right: 15px;
 }
 
-.comm-box .comm-up {
-    height: 40px;
-    padding-bottom: 10px;
-    border: 1px solid var(--text-main)
+.comm-box .d-flex {
+    gap: 10px;
+    text-align: start;
 }
 
-.comm-box .comm-main {
-    padding-bottom: 10px;
-    border: 1px solid var(--text-main)
+.comm-box .comm-up {
+    height: 40px;
+    margin: auto;
+}
+
+.comm-box .comm-up .comm-square {
+    width: 50px;
+    height: 100%;
+    border: 1px solid var(--text-main);
+    border-radius: 20%;
+
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.comm-box .comm-up .comm-square span {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .comm-box .comm-photo {
-    padding-bottom: 15px;
-    border: 1px solid var(--text-main)
-    /* height: 50px */
+    margin-bottom: 5px;
+}
+
+.comm-box .comm-photo .comm-photo-flex {
+    display: flex;
+    align-items: start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+}
+
+.comm-box .comm-photo .comm-photo-flex .comm-photo-img {
+    display: inline-block;
+    border: 1px solid var(--text-main);
+    height: 50px;
+    cursor: pointer;
 }
 
 .comm-box .comm-low {
     height: 35px;
-    border: 1px solid var(--text-main)
+}
+
+.comm-box .comm-low .comm-info-flex {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comm-box .comm-low .comm-info-flex .comm-user, .comm-date {
+    display: inline-block;
+    height: 100%;
+}
+
+.comm-box .comm-low .comm-info-flex .comm-user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comm-box .comm-low .comm-info-flex .comm-user .comm-user-img-container {
+    height: 35px;
+    width: 35px;
+}
+
+.comm-box .comm-low .comm-info-flex .comm-user .comm-user-img-container .comm-user-img {
+    object-fit: fill;
+    height: 34px;
+    width: 34px;
+    border: 1px solid var(--text-main); 
+}
+
+.comm-box span {
+    opacity: .7;
+}
+
+.good-mark {background-color: #4CF15D;}
+.average-mark {background-color: #F1E14C;}
+.bad-mark {background-color: #F14C4C;}
+
+.write-comm-container {
+    text-align: center;
+}
+
+#write-comm-button {
+    font-size: 20px;
+    color: white;
+
+    background-color: var(--title-main);
+    border: 3px solid var(--header-footer);
+    border-radius: 10%;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* footer */
@@ -202,4 +270,9 @@ footer {
 
 footer a {
     color: white !important;
+}
+
+.bordered {
+    border: 2px solid var(--title-main);
+    border-radius: 20%;
 }

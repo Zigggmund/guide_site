@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description='Article about Stolbi, Krasnoyarsky Krai'>
+        <title>Столбы</title>
+        <link rel="icon" href="../../../img/icons/logo_final.png">
+
+        <!-- main -->
+        <link rel="stylesheet" href="../css/ads-style.css">
+        <!-- НЕ РАБОТАЕТ, ИСПРАВИТЬ -->
+        <script type="text/javascript" src="../../../js-scripts/img_box.js"></script>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+        <!-- libs -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </head>
+    <body>
+        <header id="header">
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+                <a class="navbar-brand" href="#header">
+                  <img id='logo' src="../../../img/icons/logo_final.png" width="60px", height="60px">
+                </a>
+                <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_links">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#header">
+                        &#8593; Наверх
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#footer">
+                        &#8595; В конец
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" onclick="window.location.href = '../../../articles/html/index.html';">
+                        Другие статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <!-- onclick изменить в дальнейшем -->
+                      <a class="nav-link" onclick="window.location.href = 'index.html';">
+                        Обратно к статье
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../profile/html/index.html';">
+                  <img id='profile-img' src="../../../img/other/example_user.jpg" width="50px", height="50px">
+                </a> -->
+                <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../forms/log_in/html/index.html';">
+                  <img id='profile-img' src="../../../img/icons/standart/registration.png" width="50px", height="50px">
+                </a>
+              </nav>
+        </header>
+
+        <!-- margin for header (86-h of header + 10px - between header and content)-->
+        <!-- отступ снизу для footer -->
+        <main role="main" style="padding-top:calc(86px + 10px); padding-bottom: 80px;">
+          <article id="help_panel">
+            <div class="dark-block mb-20px text-center">
+              <!-- текст не переносится -->
+              <div class="mr-auto d-flex flex-row flex-wrap justify-content-around g-help" style="white-space:nowrap">
+                <span class="special-red f-28px mr-15px">Сортировка</span>
+
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-1" type="radio" name="sort" value='date' checked>
+                  <label for="radio-1">По дате</label>
+                </div>
+
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-2" type="radio" name="sort" value='rate'>
+                  <label for="radio-2">По оценкам</label>
+                </div>
+                
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-3" type="radio" name="sort" value='comm'>
+                  <label for="radio-3">По количеству комментариев</label>
+                </div>
+            </div>
+          </article>
+
+          <article id="ads">
+            <div class="comm-ads-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                <h1>Объявления гидов <b>«Саяно-Шушенский государственный природный заповедник»</b></h1>
+
+                <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                  <div class="d-flex flex-column">
+                    <div class="comm-up">
+                      Тут пока нет объявлений
+                    </div>
+                  </div>
+                </div>
+                <!-- нужно, если зашел гид -->
+                <!-- <div class="read-comms">
+                  <div class="read-comms-container">
+                    <button class="read-comms-button">
+                      Посмотреть комментарии
+                    </button>
+                  </div>
+                </div> -->
+            </div>
+          </article>
+        </main>
+
+        <footer id="footer">
+          <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+            <ul class="nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../about_site/html/index.html';">
+                  О сайте
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../contacts/html/index.html';">
+                  Контакты
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link bordered" onclick="window.location.href = '../../../forms/become_a_guide/html/index.html';">
+                  Стать гидом
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+    </body>
+</html>

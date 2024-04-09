@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description='Article about Sayan-Shushensky Biosphere Reserve, Krasnoyarsky Krai'>
+        <title>Саяно-Шушенский заповедник</title>
+        <link rel="icon" href="../../../img/icons/logo_final.png">
+
+        <!-- main -->
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- НЕ РАБОТАЕТ, ИСПРАВИТЬ -->
+        <script src="../../../js-scripts/carousel.js"></script>
+        <script src="../../../js-scripts/img_box.js"></script>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+        <!-- libs -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </head>
+    <body>
+        <header id="header">
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+                <a class="navbar-brand" href="#header">
+                  <img id='logo' src="../../../img/icons/logo_final.png" width="60px", height="60px">
+                </a>
+                <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_links">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">
+                        &#8593; Наверх
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#comments">
+                        &#8595; К комментариям
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link"  onclick="window.location.href = '../../../articles/html/index.html';">
+                        Другие статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" onclick="window.location.href = 'ads-index.html';">
+                          Предложения гидов
+                        </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../profile/html/index.html';">
+                  <img id='profile-img' src="../../../img/other/example_user.jpg" width="50px", height="50px">
+                </a> -->
+                <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../forms/log_in/html/index.html';">
+                  <img id='profile-img' src="../../../img/icons/standart/registration.png" width="50px", height="50px">
+                </a>
+              </nav>
+        </header>
+
+        <main role="main" style="margin-top:calc(86px + 40px)">
+          <article id="introduction">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+              <div class="d-flex flex-column">
+                <h1>Саяно-Шушенский государственный природный заповедник</h1>
+                <div class="del_on_small">
+                    <img src="../../../img/sayan-shushensky/введение.jpg" class="img-intro">
+                  <p>
+                    Саяно-Шушенский биосферный заповедник был построен для восстановления биосистем после строительства Саяно-Шушенской ГЭС. Является одной из крупнейших охраняемых территорий России, а его площадь составляет несколько тысяч квадратных километров. В 1985 году включен в систему международных заповедников ЮНЕСКО.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="photo">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+              <div class="d-flex flex-column gap-1">
+                <h2>Фото</h2>
+                <div id="carouselwithIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselwithIndicators" data-slide-to="1" class="active"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="5"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="../../../img/sayan-shushensky/summer.jpg" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../img/sayan-shushensky/goat.jpg" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../img/sayan-shushensky/summer2.jpg" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../img/sayan-shushensky/winter.jpg" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../img/sayan-shushensky/winter2.jpg" class="d-block w-100"/>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../../../img/sayan-shushensky/ges.jpg" class="d-block w-100"/>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselwithIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Назад</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselwithIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Вперед</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="navigation">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+              <div class="d-flex flex-column">
+                <h2>Навигация</h2>
+                <ol class="nav-ol">
+                  <li>
+                    <a href="#geography">География</a>
+                  </li>
+                  <li>
+                    <a href="#climate">Климат</a>
+                  </li>
+                  <li>
+                    <a href="#nature">Флора и фауна</a>
+                  </li>
+                  <li>
+                    <a href="#history">История</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+        <article id="geography">
+          <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+            <div class="d-flex flex-column">
+              <h2>География</h2>
+              <p>
+                Заповедник расположен в малодоступном районе Западного Саяна на юге Красноярского края на левом берегу реки Енисей в зоне влияния Саяно-Шушенского водохранилища. На территории площадью 390 368 гектаров встречаются различные природные зоны: степи, лесостепи, леса, густая тайга, лесотундра, высокогорная тундра, альпийские луга и пояс вечных снегов. Каждая из этих зон обладает своей уникальной флорой, фауной и микроклиматом. Заповедник очень труднодоступное место, добраться сюда можно только на водном транспорте по одному из самых глубоководных водохранилищ в Сибири - Саяно-Шушенскому. Вход в парк расположен недалеко от поселка Шагонар, от него до берега водохранилища 3 км.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article id="climate">
+          <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+            <div class="d-flex flex-column">
+              <h2>Климат</h2>
+              <p>
+                Заповедник расположен в зоне континентального пояса. Для региона характерны сильнейшие ветра, очень холодная и снежная зима. В самый холодный месяц температура опускается ниже -40 °С. Всего 1—3 месяца при температурной отметке выше +10 °С. На разных высотах над уровнем моря температуры и осадки могут значительно различаться. В низкогорных районах лето теплое, а зима умеренно холодная. В горных районах лето прохладное, а зима холодная с обильными снегопадами. В высокогорье лето короткое и прохладное, а зима длительная и сильно холодная, также наблюдается большая влажность.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article id="nature">
+          <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+            <div class="d-flex flex-column">
+              <h2>Флора и фауна</h2>
+              <div>
+                <p>Флора и фауна заповедника чрезвычайно разнообразны. Почти 100 видов животных — редкие, исчезающие или занесены в Красную книгу. В лесах обитают белки и соболи, росомахи и лоси, рыси и волки. Со строительством гидроэлектростанции в водоемах стало больше щук, окуней, появился лещ.</p>
+                <p>В заповеднике водится около 300 видов птиц. Некоторые из них живут на заповедных территориях постоянно, некоторые улетают после гнездования. В Красную книгу занесены черный аист, орлан-белохвост и степная пустельга.</p>
+                <p>Основную территорию Саяно-Шушенского заповедника — более 1000 квадратных километров — занимают кедровые леса. Но встречаются лиственницы, сосны и пихты. Тщательно охраняются многие виды растений, в Красную книгу попали более 10 редких мхов.</p> 
+                <p>Нельзя не упомянуть основной охраняемый вид заповедника - снежный барс. В 2017 году численность снежного барса в заповеднике достигла критического значения - обитал 1 самец. Для сохранения снежного барса на северной границе ареала были необходимы оперативные меры - на территорию выпустили выпустили еще двух снежных барсов – самца и самку, привезенных из Таджикистана. В 2020 году они принесли первое потомство, а в 2022 году молодые ирбисы стали жить самостоятельно.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="history">
+          <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+            <div class="d-flex flex-column">
+              <h2>История</h2>
+              <div>
+                <h4>1 Создание заповедника</h4>
+                <br>
+                <p>Саяно-Шушенская ГЭС проектировалась с 1961 года, c 1966 началось строительство, а в 1975 был перекрыт Енисей. Но ещё в 1967 году появились первые публикации о необходимости создания заповедника в зоне будущего водохранилища: для того, чтобы можно было изучить, что было, что будет в будущем и что есть на самом деле. Он был организован в 1976 году.</p>
+                <p>Заповедник сразу создавался как одно из компенсационных мероприятий при строительстве ГЭС (любое водохранилище — это достаточно большая нагрузка на экосистему). Перед заповедником стояла задача сохранить все в том состоянии, в каком оно было на момент создания заповедника. В силу его труднодоступности в те годы на территории заповедника не было ни браконьеров, ни лесозаготовителей. С 1978 года начались исследования по всем аспектам — изучался растительный и животный мир, геология, снеговой покров, вода.</p>
+                <p><b>С 1985 года заповеднику был присвоен статус биосферного, то есть его включили в систему международных заповедников ЮНЕСКО.</b> По его новому статусу исследования стали носить комплексный характер. На регулярной основе проводились анализы растительного покрова, брались пробы снега, которые обрабатывались в отделениях Гидрометцентра Хакасии и Новосибирска.</p>
+                <br>
+                <h4>2 Заполнение водохранилища</h4>
+                <br>
+                <p>При заполнении водохранилища 1,2 % территории существующего заповедника было затоплено. Это та территория, которая освобождается каждый год к весне, при пониженни уровня воды на 40 м.</p> 
+                <p>Первоначально влияние на природу от создания водохранилища было колоссальным: все, что жило на этой узкой полоске берега, исчезло. Такие прибрежные виды животных как барсук, лиса просто не могли адаптироваться в таком режиме. По причине непролазной грязи животные практически не подходили к воде. Полностью исчезла растительность. Всё это продолжалось примерно 4-5 лет. </p>
+                <p>Первыми освоились растения - каждую весну прибрежная полоса стала моментально зарастать. Спустя время, илистые отложения стабилизировались, а также почти прекратились оползневые процессы. Теперь затопляемая полоса — это кормовая база зверей.</p>
+                <br>
+                <h4>3 Дальнейшее развитие</h4>       
+                <br>
+                <p>С появлением ГЭС природа изменилась. Стало теплее, по берегам изменился растительный мир. Некоторые виды растений и животных исчезли, но зато более широко стали встречаться сопутствующие человеку виды. Возникла массовая зимовка птиц — сейчас на незамерзающем Енисее зимуют до 10 тысяч уток. И, кроме того, изменился гидрологический режим, то есть прекратились ежегодные половодья.</p>
+                <p>Сотрудниками заповедника используется такой метод наблюдения, как фотографирование одной и той же местности с одной точки. На сопоставляемых фотографиях чётко видно, как изменялась растительность, став в конце концов совсем другой. Сухие степные склоны гор сейчас интенсивно зарастают. Значительно чище стала вода в водохранилище. По анализам она в природном состоянии уже может использоваться в качестве питьевой. По этому показателю Енисей ниже ГЭС прекрасно подходит для разведения рыбы. С 2006 года Саяно-Шушенское водохранилище включено в список рыбопромысловых хозяйств.</p>
+                <br>
+                <h4>4 Расширение заповедника</h4>       
+                <br>
+                <p>В 1994 году постановлением администрации Красноярского края была создана дополнительная охранная зона — прибавилось ещё 102 тысячи гектаров. Был введён пропускной режим с правом директора заповедника своим приказом прекращать доступ, когда это необходимо.</p>
+                <p>К 2000 году разработан и реализован проект биосферного полигона, еще на 591 тысячу гектаров.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="comments">
+          <div class="comments-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+            <div class="d-flex flex-column">
+              <h1>Комментарии</h1>
+              <div>
+                <!-- comments -->
+                <section id="no-comments">
+                  <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                    Тут пока нет комментариев
+                  </div>
+                </section>
+
+                <section id="write-comm">
+                  <div class="write-comm-container">
+                    <button id="write-comm-button">
+                      Написать комментарий
+                    </button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+
+        <footer id="footer">
+          <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+            <ul class="nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../about_site/html/index.html';">
+                  О сайте
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../contacts/html/index.html';">
+                  Контакты
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link bordered" onclick="window.location.href = '../../../forms/become_a_guide/html/index.html';">
+                  Стать гидом
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,340 @@
+:root {
+    --header-footer: #203244;
+    --background-main: #E9ECEF;
+    --text-main: #212529;
+    --text-main: #212529;
+
+    --title-main: #D82D2D;
+    --dark-main: #9D1F1F;
+    --bright-main: color-mix(in srgb, var(--title-main) 80%, white);
+
+    --dark-background-20: color-mix(in srgb, var(--header-footer) 20%, var(--background-main));
+    --dark-background-40: color-mix(in srgb, var(--header-footer) 40%, var(--background-main));
+    --empty-field: color-mix(in srgb, var(--dark-background-20) 20%, white);
+}
+
+body {
+    color: var(--text-main);
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 16px;
+}
+
+header, footer {
+    background-color: var(--header-footer) !important;
+}
+
+h1 {
+    color: var(--title-main) !important;
+    margin-bottom: 30px !important;
+}
+h1 b {
+    display: block;
+    font-weight: 800;
+}
+
+p {
+    text-align: start;
+}
+
+/* header */
+.mr-auto {
+    flex: 1;
+    margin: auto !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+}
+
+.navbar-brand {
+    padding: 0px !important;
+}
+
+nav.bg-custom,  footer.bg-custom{
+    background-color: var(--header-footer);
+}
+
+.comm-box .comm-photo .comm-photo-flex .comm-photo-img, .nav-item, .comm-user-img {
+    cursor: pointer;
+}
+
+/* help_panel */
+
+div.dark-block {
+    background-color: var(--dark-background-40);
+    color: #FFFFFF;
+    border-radius: 5%;
+    border: 2px solid var(--text-main);
+    padding-bottom: 7px;
+    padding-top: 7px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.form-radio-btn {
+	display: inline-block;
+}
+
+.form-radio-btn input[type=radio]{
+	display: none;
+}
+
+.form-radio-btn input[type=radio]:checked + label{
+	background: var(--dark-main);
+}
+
+.form-radio-btn label {
+	display: inline-block;
+    background: var(--title-main);
+    color: var(--background-main);
+	cursor: pointer;
+	padding: 0px 10px;
+	border: 3px solid var(--header-footer);
+	border-radius: 10px;
+	user-select: none;
+    margin: auto;
+}
+
+/* main */
+
+.mr-15px {
+    margin-right: 15px;
+}
+
+.mb-20px {
+    margin-bottom: 20px;
+}
+
+.mb-10px {
+    margin-bottom: 10px;
+}
+
+.f-28px {
+    font-size: 28px;
+}
+
+.f-20px {
+    font-size: 20px;
+}
+
+.g-help {
+    column-gap: 5px;
+    row-gap: 10px; 
+}
+
+.special-red {
+    color: var(--title-main);
+    -webkit-text-stroke: 0.3px #FFFFFF;
+    font-weight: 500;
+}
+
+div.grey-block {
+    background-color: var(--background-main);
+    color: var(--text-main);
+    border-radius: 5%;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 14px;
+    padding-bottom: 30px;
+}
+
+/* ads & comments */
+
+div.ad-box {
+    background-color: var(--dark-background-20);
+    color: var(--text-main);
+    border-radius: 5%;
+    border: 1px solid var(--title-main);
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.phone-number-container {
+    font-size: 20px;
+}
+
+div.comm-add-block {
+    color: var(--text-main);
+    padding-top: 30px;
+}
+
+/* !!! желательно, чтобы растягивалось на весь экран */
+div.comments:after, div.comments:before {
+    content: '';
+    display: block;
+    height: 4px;
+    background-color: black;
+    margin-top: 20px
+} div.comments:before {
+    margin-bottom: 20px
+} div.comments:after {
+    margin-bottom: 40px;
+}
+
+div.comm-box {
+    background-color: var(--background-main);
+    color: var(--text-main);
+    border-radius: 5%;
+    border: 1px solid var(--title-main);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.comm-box .d-flex, .ad-box .d-flex{
+    gap: 10px;
+    text-align: start;
+}
+
+.comm-up, .ad-up {
+    height: 40px;
+} .comm-up {
+    margin: auto;
+}
+
+.comm-square, .ad-square {
+    height: 40px;
+    border: 1px solid var(--text-main);
+    border-radius: 10px;
+
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+.comm-square {
+    width: 50px;
+}
+.ad-square {
+    width: 78px;
+}
+
+.comm-square span, .ad-square span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.comm-photo {
+    margin-bottom: 5px;
+}
+
+.comm-photo-flex {
+    display: flex;
+    align-items: start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+}
+
+.comm-photo-img {
+    display: inline-block;
+    border: 1px solid var(--text-main);
+    height: 50px;
+    cursor: pointer;
+}
+
+.comm-low {
+    height: 35px;
+}
+
+.comm-info-flex {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comm-info-flex .comm-user, .comm-date {
+    display: inline-block;
+    height: 100%;
+}
+
+.comm-info-flex .comm-user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comm-low .comm-info-flex .comm-user .comm-user-img-container {
+    height: 35px;
+    width: 35px;
+}
+
+.comm-low .comm-info-flex .comm-user .comm-user-img-container .comm-user-img {
+    object-fit: fill;
+    height: 34px;
+    width: 34px;
+    border: 1px solid var(--text-main); 
+}
+
+.comm-low span {
+    opacity: .7;
+}
+
+.good-mark {background-color: #4CF15D;}
+.average-mark {background-color: #F1E14C;}
+.bad-mark {background-color: #F14C4C;}
+.no-mark {background-color: var(--empty-field);}
+
+/* для доп отступа при отсутствии комментариев */
+section + .write-comm {
+    padding-top: 0px !important;
+} .write-comm {
+    padding-top: 20px ;
+}
+
+.write-comm-container {
+    text-align: center;
+}
+
+section + .write-comm {
+    color: green !important;
+    margin-top: 20px !important;
+}
+
+.form-radio-btn label, .write-comm-button, .read-comms-button {
+    transition: all 0.2s ease-in;
+} .write-comm-button, .read-comms-button {
+    font-size: 20px;
+    color: white;
+
+    border: 3px solid var(--header-footer);
+    border-radius: 10%;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+} .write-comm-button {
+    background-color: var(--bright-main);
+} .read-comms-button {
+    background-color: var(--title-main);
+}
+
+.read-comms-button:focus {
+    background-color: var(--dark-main) !important;
+} .read-comms-button:focus + .comments *{
+    display: block;
+} 
+/* скрыть комментарии */
+/* .comments * {
+    display: none;
+} */
+
+/* footer */
+
+footer {
+    height: 70px;
+}
+
+footer a {
+    color: white !important;
+}
+
+.bordered {
+    border: 2px solid var(--title-main);
+    border-radius: 20%;
+}

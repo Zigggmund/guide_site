@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description='Articles'>
+        <title>Стать гидом</title>
+        <link rel="icon" href="../../../img/icons/logo_final.png">
+
+        <!-- main -->
+        <link rel="stylesheet" href="../css/style.css">
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+        <!-- libs -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </head>
+    <body>
+        <main role="main">
+          <article id="profile-info">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+              <div class="d-flex flex-column g-30">
+                <section id='form-title' height="70px">
+                    <h1>Вход в аккаунт</h1>
+                    <a href="javascript:window.history.back();">
+                        <input id='exit-button' type="image" src="../../../img/icons/standart/cross.png" onclick="window.location.href='index.html';" height="50px" width="50px" >
+                    </a>
+                </section>
+
+                <section id="main-info">
+                  <div class="d-flex flex-column g-20">
+                      <div id='login' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Логин</span>
+                          </div>
+                          <input type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='password' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Пароль</span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                </section>
+
+                <!-- КНОПКА -->
+                <a href="javascript:window.history.back();">
+                    <button id='button-confirm' type="submit" class='btn' height="70px">
+                    <div class='d-flex g-10'>
+                        <h4 class="pt-1">Войти в аккаунт</h4>
+                        <img src="../../../img/icons/standart/check.png" height="40px" width="40px" style="filter: brightness(0) invert(1);">
+                    </div>
+                    </button>
+                </a>
+
+                <section id="bottom-form-text">
+                    <a onclick="window.location.href='../../create_account/html/index.html';">
+                        <div class="small-text">
+                            Еще нет аккаунта? <br>
+                            Нажмите, чтобы зарегестрироваться
+                        </div>
+                    </div>
+                </section>
+              </div>
+            </div>
+          </article>
+        </main>
+    </body>
+</html>

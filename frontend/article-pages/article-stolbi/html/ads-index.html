@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description='Article about Stolbi, Krasnoyarsky Krai'>
+        <title>Столбы</title>
+        <link rel="icon" href="../../../img/icons/logo_final.png">
+
+        <!-- main -->
+        <link rel="stylesheet" href="../css/ads-style.css">
+        <!-- НЕ РАБОТАЕТ, ИСПРАВИТЬ -->
+        <script type="text/javascript" src="../../../js-scripts/img_box.js"></script>
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+        <!-- libs -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </head>
+    <body>
+        <header id="header">
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+                <a class="navbar-brand" href="#header">
+                  <img id='logo' src="../../../img/icons/logo_final.png" width="60px", height="60px">
+                </a>
+                <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_links">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#header">
+                        &#8593; Наверх
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#footer">
+                        &#8595; В конец
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" onclick="window.location.href = '../../../articles/html/index.html';">
+                        Другие статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <!-- onclick изменить в дальнейшем -->
+                      <a class="nav-link" onclick="window.location.href = 'index.html';">
+                        Обратно к статье
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../profile/html/index.html';">
+                  <img id='profile-img' src="../../../img/other/example_user.jpg" width="50px", height="50px">
+                </a> -->
+                <a id='link-profile-img' class='pl-3' onclick="window.location.href = '../../forms/log_in/html/index.html';">
+                  <img id='profile-img' src="../../../img/icons/standart/registration.png" width="50px", height="50px">
+                </a>
+              </nav>
+        </header>
+
+        <!-- margin for header (86-h of header + 10px - between header and content)-->
+        <main role="main" style="margin-top:86px ">
+          <article id="help_panel">
+            <div class="dark-block mb-20px text-center">
+              <!-- текст не переносится -->
+              <div class="mr-auto d-flex flex-row flex-wrap justify-content-around g-help" style="white-space:nowrap">
+                <span class="special-red f-28px mr-15px">Сортировка</span>
+
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-1" type="radio" name="sort" value='date' checked>
+                  <label for="radio-1">По дате</label>
+                </div>
+
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-2" type="radio" name="sort" value='rate'>
+                  <label for="radio-2">По оценкам</label>
+                </div>
+                
+                <div class="form-radio-btn f-20px">
+                  <input id="radio-3" type="radio" name="sort" value='comm'>
+                  <label for="radio-3">По количеству комментариев</label>
+                </div>
+            </div>
+          </article>
+
+          <article id="ads">
+            <div class="comm-ads-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                <h1>Объявления гидов <b>«Столбы»</b></h1>
+
+                <section id='ad-1'>
+                  <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                    <div class="d-flex flex-column">
+                      <div class="ad-up">
+                        <div class="comm-info-flex">
+                          <div class="ad-square good-mark">
+                            <span>7.67</span>
+                          </div>
+                          <div class="phone-number-container special-red">
+                            <span>+7 999 999 99 99</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comm-main">
+                        Поход продолжительностью 8 часов. <br>
+                        Посещение всех основных скал на Восточных Столбых. <br>
+                        Цена 2000 с человека. <br>
+                        Специальная спортивная подготовка не требуется. <br>
+                        По дополнительным вопросам свяжитесь со мной
+                      </div>
+                      <div class="comm-photo">
+                        <div class="comm-photo-flex">
+                          <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                          <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                        </div>
+                      </div>
+                      <div class="comm-low">
+                        <div class="comm-info-flex">
+                          <div class="comm-user">
+                            <div class="comm-user-img-container">
+                              <img src="../../../img/other/example_guide.jpg" class="comm-user-img" onclick="window.location.href='../../../guide_profile/html/index.html';">
+                            </div>
+                            <div class="comm-date-container">
+                              <span>Гид Данил</span>
+                            </div>
+                          </div>
+                          <div class="comm-date">
+                            <span>1 марта 2024</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="read-comms">
+                    <div class="read-comms-container">
+                      <button class="read-comms-button">
+                        Посмотреть комментарии
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="comments">
+                    <!-- !!! может id комм лучше удалить -->
+                    <section id="comment-1">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square good-mark">
+                              <span>10</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Все понравилось! Экскурсовод отличный, всем советую!
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex"></div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>Сергей Сергей</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>14 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+  
+                    <section id="comment-2">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square bad-mark">
+                              <span>3</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Экскурсовод спешит, успевать невозможно!
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex">
+                            </div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>Анна Анна</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>9 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    
+                    <section id="comment-3">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square average-mark">
+                              <span>6</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            В целом понравилось, но поход явно не для новичков! Устал как собака) В объявление явно нужно было упомянуть уровень сложности.
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/summer.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/summer.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                            </div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>Виталя виталя</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>4 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+  
+                    <section class="write-comm">
+                      <div class="write-comm-container">
+                        <button class="write-comm-button">
+                          Написать комментарий
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+
+
+
+                <section id='ad-2'>
+                  <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                    <div class="d-flex flex-column">
+                      <div class="ad-up">
+                        <div class="comm-info-flex">
+                          <div class="ad-square no-mark">
+                            <span>-</span>
+                          </div>
+                          <div class="phone-number-container special-red">
+                            <span>+7 999 000 00 00</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comm-main">
+                        Экскурсия по основным скалам заповедника, 1 день. <br>
+                        3000 рублей
+                      </div>
+                      <div class="comm-photo">
+                        <div class="comm-photo-flex"></div>
+                      </div>
+                      <div class="comm-low">
+                        <div class="comm-info-flex">
+                          <div class="comm-user">
+                            <div class="comm-user-img-container">
+                              <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                            </div>
+                            <div class="comm-date-container">
+                              <span>Ноунейм</span>
+                            </div>
+                          </div>
+                          <div class="comm-date">
+                            <span>13 февраля 2024</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="read-comms">
+                    <div class="read-comms-container">
+                      <button class="read-comms-button">
+                        Посмотреть комментарии
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="comments">
+                    <section class="write-comm">
+                      <div class="write-comm-container">
+                        <button class="write-comm-button">
+                          Написать комментарий
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+
+
+
+                <section id='ad-3'>
+                  <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                    <div class="d-flex flex-column">
+                      <div class="ad-up">
+                        <div class="comm-info-flex">
+                          <div class="ad-square average-mark">
+                            <span>5.50</span>
+                            <!-- КОММЕНТАРИИ - 2, 5, 8, 7 -->
+                          </div>
+                          <div class="phone-number-container special-red">
+                            <span>+7 999 999 00 00</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comm-main">
+                        Семейная экскурсия 6 часов. <br>
+                        Минимальный возраст - 10 лет. <br>
+                        Стоимость - 2000 рублей с взрослого, 1000 с ребенка до 14 лет (конечно же нужно сопровождение взрослого)
+                      </div>
+                      <div class="comm-photo">
+                        <div class="comm-photo-flex"></div>
+                      </div>
+                      <div class="comm-low">
+                        <div class="comm-info-flex">
+                          <div class="comm-user">
+                            <div class="comm-user-img-container">
+                              <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                            </div>
+                            <div class="comm-date-container">
+                              <span>Анатолий анатолий</span>
+                            </div>
+                          </div>
+                          <div class="comm-date">
+                            <span>3 февраля 2024</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                  <div class="btn read-comms" type="button" data-toggle="collapse" data-target="#comments" aria-expanded="false" aria-controls="#comments">
+                    <div class="read-comms-container">
+                      <button class="read-comms-button">
+                        Посмотреть комментарии
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="comments">
+                    <!-- !!! может id комм лучше удалить -->
+                    <section id="comment-1">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square good-mark">
+                              <span>7</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Ходили с 3 детьми на экскурсию. <br>
+                            С женой не в восторге. <br>
+                            Поставили бы меньше, но но детям очень понравилось.
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex"></div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>guy</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>12 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+  
+                    <section id="comment-2">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square bad-mark">
+                              <span>2</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Ужасно, думал скинут цену за ребенка до 200 рублей.
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex">
+                            </div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>Миша Миша Михаил</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>4 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    
+                    <section id="comment-3">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square good-mark">
+                              <span>7</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Саамнительна, но ОКЭЙ
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex"></div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>хз</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>19 февраля 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section id="comment-4">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square no-mark">
+                              <span>-</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Не знаю что и сказать...
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              <img src="../../../img/stolbi/summer.jpg" class="comm-photo-img" onclick="img_box(this)">
+                              </div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>123</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>13 февраля 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section id="comment-4">
+                      <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                        <div class="d-flex flex-column">
+                          <div class="comm-up">
+                            <div class="comm-square good-mark">
+                              <span>8</span>
+                            </div>
+                          </div>
+                          <div class="comm-main">
+                            Топчик
+                          </div>
+                          <div class="comm-photo">
+                            <div class="comm-photo-flex">
+                              <img src="../../../img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                            </div>
+                          </div>
+                          <div class="comm-low">
+                            <div class="comm-info-flex">
+                              <div class="comm-user">
+                                <div class="comm-user-img-container">
+                                  <img src="../../../img/icons/default_av.png" class="comm-user-img">
+                                </div>
+                                <div class="comm-date-container">
+                                  <span>Настя 12 лет</span>
+                                </div>
+                              </div>
+                              <div class="comm-date">
+                                <span>2 марта 2024</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+  
+                    <section class="write-comm">
+                      <div class="write-comm-container">
+                        <button class="write-comm-button">
+                          Написать комментарий
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+            </div>
+          </article>
+        </main>
+
+        <footer id="footer">
+          <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+            <ul class="nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../about_site/html/index.html';">
+                  О сайте
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" onclick="window.location.href = '../../../contacts/html/index.html';">
+                  Контакты
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link bordered" onclick="window.location.href = '../../../forms/become_a_guide/html/index.html';">
+                  Стать гидом
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+    </body>
+</html>
