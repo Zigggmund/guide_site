@@ -1,0 +1,42 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Столбы{% endblock %}
+
+{% block head_info %}
+<meta description='All articles'>
+<link rel="stylesheet" href="../static/css/articles.css">
+{% endblock %}
+
+{% block BODY_main %}
+<!-- margin for header (86-h of header, 40-margin)-->
+<main role="main" style="margin-top:calc(86px + 40px)">
+  <article id="navigation">
+    <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+      <div class="d-flex flex-column">
+        <h1>Статьи</h1>
+        <ol class="nav-ol">
+          <!-- articles из бд для отображения -->
+          {% for article in articles %}
+            <li>
+              <a href="/articles/{{article[2]}}">{{article[3]}}</a>
+            </li>
+          {%endfor%}
+        </ol>
+      </div>
+    </div>
+  </article>
+</main>
+{%endblock%}
+
+{% block BODY_footer %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/about_site">
+    О сайте
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/contacts">
+    Контакты
+    </a>
+  </li>
+{%endblock%}

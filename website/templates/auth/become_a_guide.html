@@ -1,0 +1,97 @@
+{%extends 'auth/base_form.html'%}
+
+{%block title%} Стать гидом{%endblock%}
+
+{%block head_info%}
+<meta description='Become a guide'>
+<link rel="stylesheet" href="../static/css/auth/become_a_guide.css">
+{%endblock%}
+
+{%block BODY_form_heading%}Стать гидом{%endblock%}
+
+{%block BODY_form_fields%}
+                <section id="main-info">
+                  <div class="d-flex flex-column g-20">
+                      <div id='last-name' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Фамилия</span>
+                          </div>
+                          <input name="guide_last_name" type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='first-name' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Имя</span>
+                          </div>
+                          <input name="guide_first_name" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='father-name' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Отчество</span>
+                          </div>
+                          <input name="guide_father_name" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='about-me' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Расскажите о себе</span>
+                        </div>
+                        <input name="guide_info" type="text" class="form-control bg-custom-bright" placeholder="Необязательно заполнять">
+                    </div>
+                    <div id='phone-number' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Номер телефона</span>
+                        </div>
+                        <input name="guide_phone_number" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                    </div>
+                    <div id='passport-series' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Серия паспорта</span>
+                        </div>
+                        <input name="passport-series" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                    </div>
+                      <div id='passport-number' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Номер паспорта</span>
+                          </div>
+                          <input name="passport-number" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                </section>
+
+                <section>
+                    <h2>Данные лицензии</h2>
+                    <div class="big-text"> (в соответствии с Реестром экскурсоводов и гидов-переводчиков России)</div>
+                </section>
+
+                <section id="license">
+                    <div class="d-flex flex-column g-20">
+                      <div id='license-number' class="input-group">
+                          <div class="input-group-prepend bg-custom-dark">
+                              <span class="input-group-text" id="field">Номер лицензии</span>
+                          </div>
+                          <input name="guide_licence_number" type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='license-date' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Дата получения</span>
+                          </div>
+                          <input name='guide_licence_date' type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- КНОПКА -->
+                <!-- в этом варианте при переходе назад исчезнет Стать Гидом-->
+                <!-- <a href="javascript:window.history.back();"> -->
+                
+                <a>
+                    <button id='button-confirm' type="submit" class='btn' height="70px">
+                    <div class='d-flex g-10'>
+                        <h4 class="pt-1">Подтвердить</h4>
+                        <img src="../../static/img/icons/standart/check.png" height="40px" width="40px" style="filter: brightness(0) invert(1);">
+                    </div>
+                    </button>
+                    </a>
+
+                <section id="bottom-form-text">
+                    <div class="small-text">После проверки ваших данных, на указанную при регистрации почту придет письмо с решением о решении</div>
+                </section>
+{%endblock%}

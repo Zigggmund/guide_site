@@ -1,0 +1,41 @@
+{% extends 'base_profile.html'%}
+
+{%block title%}Профиль гида{%endblock%}
+
+{%block head_info%}
+        <meta description='Become a guide'>
+        <link rel="stylesheet" href="../static/css/guide_profile.css">
+{%endblock%}
+
+{%block BODY_PROFILE_name%}Профиль гида{%endblock%}
+{%block BODY_PROFILE_img%}
+<img id='profile-main-img' src="../static/img/other/example_guide.jpg">
+{%endblock%}
+
+{%block BODY_PROFILE_guide_info%}
+                <div class="guide-info-container">
+                  <ul>
+                    <li>
+                      <div>О себе:</div>
+                      <span id="guide-describe">{{user_info[8]}}</span>
+                    </li>
+                    <li>
+                      <div>Дата регистрации как гида:</div>
+                      <span id="guide-reg-date">{{user_info[9]}}</span>
+                    </li>
+                    <li>
+                      <div>Количество объявлений:</div>
+                      <span id="guide-ads-num">{{user_info[10]}}</span>
+                    </li>
+                    <li>
+                      <div>Средняя оценка:</div>
+                      <span id="guide-rate">{{user_info[11]}}</span>
+                    </li>
+                    <!-- НЕ ДОДЕЛАНО -->
+                    <!-- <li>
+                      <div>Количество оценок:</div>
+                      <span id="guide-ad-comms-num">9</span>
+                    </li> -->
+                  </ul>
+                </div>
+{%endblock%}

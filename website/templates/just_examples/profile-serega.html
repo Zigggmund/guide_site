@@ -1,0 +1,79 @@
+{% extends 'base_page.html'%}
+        
+
+{%block title%}Столбы{%endblock%}
+
+{%block head_info%}
+        <meta description='Profile'>
+        <link rel="stylesheet" href="../static/css/profile.css">
+{%endblock%}
+
+{%block BODY_header_links%}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Статьи
+                      </a>
+                    </li>
+{%endblock%}
+
+{%block BODY_main%}
+        <!-- margin for header (86-h of header, 40-margin)-->
+        <main role="main" style="margin-top:calc(86px + 40px)">
+          <article id="profile-info">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+              <div class="d-flex flex-column">
+                <h1>Профиль</h1>
+                <div class="profile-main-img-container mb-20px">
+                  <img id='profile-main-img' src="../static/img/other/example_user.jpg">
+                </div>
+                  <div class="user-info-container">
+                    <ul>
+                      <li>
+                        <div>Имя пользователя:</div>
+                        <span id="user-name">Тестовый Серега</span>
+                      </li>
+                      <li>
+                        <div>Дата регистрации:</div>
+                        <span id="user-reg-date">21 февраля 2024</span>
+                      </li>
+                      <li>
+                        <div>Количество комментариев:</div>
+                        <span id="user-comm-num">8</span>
+                      </li>
+                      <li>
+                        <div>Дата рождения:</div>
+                        <span id="user-birth-date">15 августа 1978</span>
+                      </li>
+                      <li>
+                        <div>Логин:</div>
+                        <span id="user-login">test_serega</span>
+                      </li>
+                      <li>
+                        <div>Пароль</div>
+                        <span id="user-password">123123</span>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </main>
+{%endblock%}
+        
+{% block BODY_footer %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/about_site">
+          О сайте
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contacts">
+          Контакты
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link bordered" href="auth/become_a_guide">
+          Стать гидом
+        </a>
+      </li>
+{%endblock%}

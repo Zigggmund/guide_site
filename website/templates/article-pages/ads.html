@@ -1,0 +1,360 @@
+{%extends 'base.html'%}
+
+{%block title%}Объявления гидов «{{article_info[3]}}»{%endblock%}
+
+{%block head_info%}
+        <meta description='Ads for {{article_info[3]}}, Krasnoyarsky Krai'>
+{%endblock%}
+{%block common_head_info%}
+        <link rel="stylesheet" href="../../../static/css/article-pages/ads-style.css">
+{%endblock%}
+{%block img_script%}
+<script type="text/javascript" src="../../../static/js-scripts/img_box.js"></script>
+{%endblock%}
+
+{% block body%}
+        <header id="header">
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+                <a class="navbar-brand" href="/">
+                  <img id='logo' src="../../../static/img/icons/logo_final.png" width="60px", height="60px">
+                </a>
+                <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_links">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#header">
+                        &#8593; Наверх
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#footer">
+                        &#8595; В конец
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Другие статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" id="back">
+                        Обратно к статье
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <a id='link-profile-img' class='pl-3' href="/profile">
+                  {% if session['user_id'] %}
+                    {% if session['is_guide']%}
+                      <img id='profile-img' src="../../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                    {%else%}
+                      <img id='profile-img' src="../../static/img/icons/default_av.png" width="50px", height="50px"> 
+                    {%endif%}
+                  {% else %}
+                    <img id='profile-img' src="../../static/img/icons/standart/registration.png" width="50px", height="50px">
+                  {%endif%}
+                </a>
+              </nav>
+        </header>
+
+        <!-- margin for header (86-h of header + 10px - between header and content)-->
+        <main role="main" style="margin-top:86px ">
+          <article id="help_panel">
+            <div class="dark-block mb-20px text-center">
+              <!-- текст не переносится -->
+              <div class="mr-auto d-flex flex-row flex-wrap justify-content-around g-help" style="white-space:nowrap">
+                <span class="special-red f-28px mr-15px">Сортировка</span>
+                {%if (sorting != 'rate') and (sorting != 'comments')%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-1" type="radio" name="sort" value='date' checked>
+                    <label for="radio-1">По дате</label>
+                  </div>
+                {%else%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-1" type="radio" name="sort" value='date' >
+                    <label for="radio-1">По дате</label>
+                  </div>
+                {%endif%}
+
+                {% if sorting == 'rate'%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-2" type="radio" name="sort" value='rate' checked>
+                    <label for="radio-2">По оценкам</label>
+                  </div>
+                {%else%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-2" type="radio" name="sort" value='rate'>
+                    <label for="radio-2">По оценкам</label>
+                  </div>
+                {%endif%}
+
+                {%if sorting == 'comments'%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-3" type="radio" name="sort" value='comments' checked>
+                    <label for="radio-3">По количеству комментариев</label>
+                  </div>
+                {%else%}
+                  <div class="form-radio-btn f-20px">
+                    <input id="radio-3" type="radio" name="sort" value='comments'>
+                    <label for="radio-3">По количеству комментариев</label>
+                  </div>
+                {%endif%}
+            </div>
+          </article>
+
+          <!-- отображение сообщений -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                {%if category == 'error'%}
+                  <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                {%else%}
+                  <div class="alert alert-success alert-dismissable fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                {%endif%}
+              {%endfor%}
+            {% endif %}
+          {%endwith%}
+
+          <article id="ads">
+            <div class="comm-ads-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                <h1>Объявления гидов <b>«{{article_info[3]}}»</b></h1>
+                {% if 'is_guide' in session%}
+                    <section id="write-ad">
+                        <div class="write-comm-container">
+                            <button id="write-ad-button">
+                                Оставить объявление
+                            </button>
+                        </div>
+                    </section>
+                {%endif%}
+
+                {% if article_ads|length == 0 %}
+                    <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                        <div class="d-flex flex-column">
+                            <div class="comm-up">
+                                Тут пока нет объявлений
+                            </div>
+                        </div>
+                    </div>
+                {%else%}
+                  {%for ad in article_ads%}
+                    <section id='ad-{{ loop.index }}'>
+                        <div class="ad-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-10px text-center">
+                          <div class="d-flex flex-column">
+                            <div class="ad-up">
+
+                              {%if 'user_id' in session and ('is_admin' in session or session['user_id'] == ad[0])%}
+                              <form method="POST">
+                                <button class="exit-btn-ad" name='submit_button' type='submit' value="{{ad[2]}}">
+                                  <img id='exit-button' src="../../static/img/icons/standart/cross-red.png" height="30px" width="30px">
+                                </button>
+                              </form>
+                              {%endif%}
+
+                              <div class="comm-info-flex">
+                                {%if ad[9] == None %}
+                                <div class="comm-square no-mark">
+                                    <span>-</span>
+                                </div>
+                                {%elif ad[9] < 4 %}
+                                <div class="comm-square bad-mark">
+                                    <span>{{ad[9]}}</span>
+                                </div>
+                                {%elif ad[9] < 7 %}
+                                <div class="comm-square average-mark">
+                                    <span>{{ad[9]}}</span>
+                                </div>
+                                {%else%}
+                                <div class="comm-square good-mark">
+                                    <span>{{ad[9]}}</span>
+                                </div>
+                                {%endif%}
+                                <div class="phone-number-container special-red">
+                                  <span>{{ad[7]}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="comm-main">{{ad[3]}}</div>
+                            <div class="comm-photo">
+                              <div class="comm-photo-flex">
+                                <!-- ДОДЕЛАТЬ -->
+                                <!-- что то вроде ad[8] -->
+                                <!-- <img src="../../../static/img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                                <img src="../../../static/img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)"> -->
+                              </div>
+                            </div>
+                            <div class="comm-low">
+                              <div class="comm-info-flex">
+                                <div class="comm-user">
+                                  <div class="comm-user-img-container">
+                                    <!-- ДОДЕЛАТЬ -->
+                                    <!-- что то вроде ad[5] -->
+                                    <a href="../../profile{{ad[0]}}">
+                                      <img src="../../../static/img/other/example_guide.jpg" class="comm-user-img">
+                                    </a>
+                                  </div>
+                                  <div class="comm-date-container">
+                                    <span>{{ad[6]}}</span>
+                                  </div>
+                                </div>
+                                <div class="comm-date">
+                                  <span>{{ad[4]}}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="read-comms">
+                          <div class="read-comms-container">
+                            <button class="read-comms-button">
+                              Посмотреть комментарии
+                            </button>
+                          </div>
+                        </div>
+                        <div class="comments">
+                          <!-- отсеивание не принадлежащих объявлению комментариев -->
+                          {%set ac_list = []%}
+                          {% for ac in ad_comments%}
+                            {%if ac[2] == ad[2]%}
+                              {{ ac_list.append(ac) or ""}}
+                            {%endif%}
+                          {%endfor%}
+
+                                {%for ac in ac_list%}
+                                <section id="comment-{{ loop.index }}">
+                                    <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                                      <div class="d-flex flex-column">
+                                        <div class="comm-up">
+                                          {%if 'user_id' in session and ('is_admin' in session or session['user_id'] == ac[1])%}
+                                          <form method="POST">
+                                            <button class="exit-btn" name='submit_button' type='submit' value="{{ac[2]}}, {{ac[3]}}">
+                                              <img id='exit-button' src="../../static/img/icons/standart/cross-red.png" height="30px" width="30px">
+                                            </button>
+                                          </form>
+                                          {%endif%}
+                                            {%if ac[4] == None %}
+                                            <div class="comm-square no-mark">
+                                                <span>-</span>
+                                            </div>
+                                            {%elif ac[4] < 4 %}
+                                            <div class="comm-square bad-mark">
+                                                <span>{{ac[4]}}</span>
+                                            </div>
+                                            {%elif ac[4] < 7 %}
+                                            <div class="comm-square average-mark">
+                                                <span>{{ac[4]}}</span>
+                                            </div>
+                                            {%else%}
+                                            <div class="comm-square good-mark">
+                                                <span>{{ac[4]}}</span>
+                                            </div>
+                                            {%endif%}
+                                        </div>
+                                        <div class="comm-main">{{ac[5]}}</div>
+                                        <div class="comm-photo">
+                                            <!-- ДОДЕЛАТЬ -->
+                                            <!-- что-то вроде ac[7] -->
+                                          <!-- <div class="comm-photo-flex"></div> -->
+                                        </div>
+                                        <div class="comm-low">
+                                          <div class="comm-info-flex">
+                                            <div class="comm-user">
+                                              <div class="comm-user-img-container">
+                                                <!-- ДОДЕЛАТЬ -->
+                                                <!-- что-то вроде ac[8] -->
+                                                <a href="../../profile{{ac[1]}}">
+                                                  {%if ac[9] == 'ADMIN'%}
+                                                  <img src="../../../static/img/icons/default_av.png" class="comm-admin-img">
+                                                  {%else%}
+                                                  
+                                                  <img src="../../../static/img/icons/default_av.png" class="comm-user-img">
+                                                  {%endif%}
+                                                </a>
+                                              </div>
+                                              <div class="comm-date-container">
+                                                <span>{{ac[9]}}</span>
+                                              </div>
+                                            </div>
+                                            <div class="comm-date">
+                                              <span>{{ac[6]}}</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+                                {%endfor%}
+                                <!-- гид не может оставлять комментарии на свои же объявления -->
+                                {% if session['user_id'] == ad[0]%}
+                                <section class="write-comm">
+                                  <div class="write-comm-container">
+                                      <button class="write-comm-button btn-disabled" disabled>
+                                          Нельзя оставлять комментарии на свое объявление
+                                      </button>
+                                  </div>
+                                </section>
+                                {% elif session['user_id'] %}
+                                <section class="write-comm" id="wc-{{ad[2]}}">
+                                  <div class="write-comm-container">
+                                      <button class="write-comm-button">
+                                          Написать комментарий
+                                      </button>
+                                  </div>
+                                </section>
+                                {%else%}
+                                <section class="write-comm" id="wc-{{ad[2]}}">
+                                  <div class="write-comm-container">
+                                    <a href="/auth/log_in">
+                                      <button class="write-comm-button">
+                                          Написать комментарий
+                                      </button>
+                                    </a>
+                                  </div>
+                                </section>
+                                {%endif%}
+                        </div>
+                      </section>
+                    {%endfor%}
+                  {%endif%}
+            </div>
+          </article>
+        </main>
+
+        <footer id="footer">
+            <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+                <ul class="nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/about_site">
+                      О сайте
+                    </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/contacts">
+                      Контакты
+                    </a>
+                  </li>
+                  {%if 'is_guide' not in session and 'is_admin' not in session%}
+                  <li class="nav-item active">
+                    <a class="nav-link bordered" href="/auth/become_a_guide">
+                      Стать гидом
+                    </a>
+                  </li>
+                  {%endif%}
+                </ul>
+            </div>
+          </footer>
+
+          <script src="../../static/js-scripts/ads.js"></script>
+{%endblock%}

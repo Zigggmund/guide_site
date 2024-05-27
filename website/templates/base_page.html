@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <header id="header">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+            <a class="navbar-brand" href="/">
+                <img id='logo' src="../static/img/icons/logo_final.png" width="60px", height="60px">
+            </a>
+            <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main_links">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#header">
+                            &#8593; В начало
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#footer">
+                            &#8595; В конец
+                        </a>
+                    </li>
+                    {%block BODY_header_links%}
+                    {%endblock%}
+                </ul>
+            </div>
+            {%block BODY_profile_btn%}
+            <a id='link-profile-img' class='pl-3' href="/profile">
+                {% if session['user_id'] %}
+                    {% if session['is_guide']%}
+                    <img id='profile-img' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                    {%else%}
+                        <img id='profile-img' src="../static/img/icons/default_av.png" width="50px", height="50px"> 
+                    {%endif%}
+                {% else %}
+                  <img id='profile-img' src="../static/img/icons/standart/registration.png" width="50px", height="50px">
+                {%endif%}
+            </a>
+            {%endblock%}
+        </nav>
+    </header>
+
+    
+    {% block BODY_main %}
+    {%endblock%}
+
+    <footer id="footer">
+    <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+        <ul class="nav mr-auto">
+            {% block BODY_footer%}
+            {%endblock%}
+            {%if 'is_guide' not in session and 'is_admin' not in session%}
+            <li class="nav-item active">
+                <a class="nav-link bordered" href="/auth/become_a_guide">
+                Стать гидом
+                </a>
+            </li>
+            {%endif%}
+
+        </ul>
+    </div>
+    </footer>
+    {%block profile_script%}
+    {%endblock%}
+{%endblock%}

@@ -1,0 +1,44 @@
+{%extends 'auth/base_form.html'%}
+
+<!-- ПОКА НЕ ИСПОЛЬЗУЕТСЯ -->
+
+{%block title%}Подтвердить почту{%endblock%}
+
+{%block head_info%}
+        <meta description='Confirm email'>
+        <link rel="stylesheet" href="../../static/css/auth/confirm_email.css">
+{%endblock%}
+
+{%block BODY_form_heading%}Подтвердить почту{%endblock%}
+
+{%block BODY_form_fields%}
+                <section id="main-info">
+                  <div class="d-flex flex-column g-20">
+                      <div id='confirmation-code' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Код подтверждения</span>
+                          </div>
+                          <input type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                </section>
+
+                <!-- КНОПКА -->
+                <!-- <a href="javascript:history.go(-3)"> -->
+                <a href="/">
+                  <button id='button-confirm' type="submit" class='btn' height="70px">
+                    <div class='d-flex g-10'>
+                        <h4 class="pt-1">Подтвердить</h4>
+                        <img src="../../static/img/icons/standart/check.png" height="40px" width="40px" style="filter: brightness(0) invert(1);">
+                    </div>
+                    </button>
+                </a>
+
+                <section id="bottom-form-text">
+                    <a onclick="">
+                      <div class="small-text">
+                        Отправить код для <br>
+                        подтверждения повторно
+                      </div>
+                    </a>
+                </section>
+{%endblock%}

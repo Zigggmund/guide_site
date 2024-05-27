@@ -1,0 +1,47 @@
+{% extends 'auth/base_form.html' %}
+
+{% block title %}Вход в аккаунт{% endblock %}
+      
+{% block head_info %}
+<meta description='Log in'>
+<link rel="stylesheet" href="../../static/css/auth/log_in.css">
+{% endblock %}
+
+{%block BODY_form_heading%}Вход в аккаунт{%endblock%}
+
+{%block BODY_form_fields%}
+                <section id="main-info">
+                  <div class="d-flex flex-column g-20">
+                      <div id='login' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Логин</span>
+                          </div>
+                          <input name="user_login" type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='password' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Пароль</span>
+                          </div>
+                          <input name="user_password" type="password" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                </section>
+
+                <!-- КНОПКА -->
+                <a href="/">
+                    <button id='button-confirm' type="submit" class='btn' height="70px">
+                    <div class='d-flex g-10'>
+                        <h4 class="pt-1">Войти в аккаунт</h4>
+                        <img src="../../static/img/icons/standart/check.png" height="40px" width="40px" style="filter: brightness(0) invert(1);">
+                    </div>
+                    </button>
+                </a>
+
+                <section id="bottom-form-text">
+                    <a href="/auth/sign_up">
+                        <div class="small-text">
+                            Еще нет аккаунта? <br>
+                            Нажмите, чтобы зарегестрироваться
+                        </div>
+                    </div>
+                </section>
+{%endblock%}

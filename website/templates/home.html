@@ -1,0 +1,71 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Домашняя страница{% endblock %}
+
+{% block head_info %}
+<meta description='Home'>
+<link rel="stylesheet" href="../static/css/articles.css">
+{% endblock %}
+
+
+<!-- body -->
+{% block BODY_header_links %}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Статьи
+                      </a>
+                    </li>
+{%endblock%}
+
+{% block BODY_main %}
+<!-- margin for header (86-h of header, 40-margin)-->
+<main role="main" style="margin-top:calc(86px + 40px)">
+
+  <!-- отображение сообщений -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      {%if category == 'error'%}
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {%else%}
+        <div class="alert alert-success alert-dismissable fade show" role="alert">
+          {{message}}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {%endif%}
+    {%endfor%}
+  {% endif %}
+{%endwith%}
+
+  <article id="greetings">
+    <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+      <div class="d-flex flex-column">
+        <h1>Добро пожаловать на путеводитель по Красноярскому Краю!</h1>
+        <div>
+            Если хотите узнать о нашем сайте больше, нажмите на кнопку "О сайте" внизу
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+{%endblock%}
+
+{% block BODY_footer %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/about_site">
+    О сайте
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/contacts">
+    Контакты
+    </a>
+  </li>
+{%endblock%}

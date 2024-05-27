@@ -1,0 +1,254 @@
+{%extends 'base.html'%}
+
+{%block title%}{{article_info[3]}}{%endblock%}
+
+{%block common_head_info%}
+        <link rel="stylesheet" href="../../../static/css/article-pages/style.css">
+{%endblock%}
+
+{%block body%}
+        <header id="header">
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-custom">
+                <a class="navbar-brand" href="/">
+                  <img id='logo' src="../../../static/img/icons/logo_final.png" width="60px", height="60px">
+                </a>
+                <button class="navbar-toggler" type="button" dtaa-toggle="collapse" data-toggle="collapse" data-target="#main_links" aria-controls="main_links" aria-expanded="false">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="main_links">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#header">
+                        &#8593; Наверх
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#comments">
+                        &#8595; К комментариям
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Другие статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="back-btn">
+                          Предложения гидов
+                        </a>
+                      </li>
+                  </ul>
+                </div>
+                <a id='link-profile-img' class='pl-3' href="/profile">
+                  {% if session['user_id'] %}
+                    {% if session['is_guide']%}
+                      <img id='profile-img' src="../../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                    {%else%}
+                      <img id='profile-img' src="../../static/img/icons/default_av.png" width="50px", height="50px"> 
+                    {%endif%}
+                  {% else %}
+                    <img id='profile-img' src="../../static/img/icons/standart/registration.png" width="50px", height="50px">
+                  {%endif%}
+                </a>
+              </nav>
+        </header>
+
+        <!-- margin for header (86-h of header, 40-margin)-->
+        <main role="main" style="margin-top:calc(86px + 40px)">
+
+          <!-- отображение сообщений -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                {%if category == 'error'%}
+                  <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                {%else%}
+                  <div class="alert alert-success alert-dismissable fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="close" data-dismiss="alert">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                {%endif%}
+              {%endfor%}
+            {% endif %}
+          {%endwith%}
+
+          <article id="introduction">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+              <div class="d-flex flex-column">
+                <h1>{{article_info[3]}}</h1>
+                {%block ARTICLES_introduction%}
+                {%endblock%}
+              </div>
+            </div>
+          </article>
+
+          <article id="photo">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+              <div class="d-flex flex-column gap-1">
+                <h2>Фото</h2>
+                <div id="carouselwithIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselwithIndicators" data-slide-to="1" class="active"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselwithIndicators" data-slide-to="5"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    {%block ARTICLES_photos%}
+                    {%endblock%}
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselwithIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Назад</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselwithIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Вперед</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {%block ARTICLES_main_content%}
+          {%endblock%}
+
+        <article id="comments">
+          <div class="comments-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+            <div class="d-flex flex-column">
+              <h1>Комментарии</h1>
+              <div>
+                {% if article_comments|length == 0 %}
+                  <section id="no-comments">
+                    <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                      Тут пока нет комментариев
+                    </div>
+                  </section>
+                {%else%}
+                  {%for comment in article_comments%}
+                  <section id="comment-{{ loop.index }}">
+                    <div class="comm-box ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-20px text-center">
+                      <!-- exit-button -->
+                      {%if 'user_id' in session and ('is_admin' in session or session['user_id'] == comment[1])%}
+                      <form method="POST">
+                        <button class="exit-btn" name='submit_button' type='submit' value="{{comment[2]}}">
+                          <img id='exit-button' src="../../static/img/icons/standart/cross-red.png" height="30px" width="30px">
+                        </button>
+                      </form>
+                      {%endif%}
+
+                      <div class="d-flex flex-column">
+                        <div class="comm-up">
+                          {%if comment[3] == None %}
+                            <div class="comm-square no-mark">
+                              <span>-</span>
+                            </div>
+                          {%elif comment[3] < 4 %}
+                            <div class="comm-square bad-mark">
+                              <span>{{comment[3]}}</span>
+                            </div>
+                          {%elif comment[3] < 7 %}
+                            <div class="comm-square average-mark">
+                              <span>{{comment[3]}}</span>
+                            </div>
+                          {%else%}
+                            <div class="comm-square good-mark">
+                              <span>{{comment[3]}}</span>
+                            </div>
+                          {%endif%}
+                        </div>
+                        <div class="comm-main">
+                          {{comment[4]}}
+                        </div>
+                        <!-- ДОДЕЛАТЬ ЗАГРУЗКУ ФОТО -->
+                        <!-- что-то вроде comment[6] -->
+                        <!-- <div class="comm-photo"> -->
+                        <div class="comm-photo-flex">
+                            <!-- <img src="../../../static/img/stolbi/введение.jpg" class="comm-photo-img" onclick="img_box(this)">
+                            <img src="../../../static/img/stolbi/summer.jpg" class="comm-photo-img" onclick="img_box(this)"> -->
+                        </div>
+                        <div class="comm-low">
+                          <div class="comm-info-flex">
+                            <div class="comm-user">
+                              <div class="comm-user-img-container">
+                                <!-- ДОДЕЛАТЬ ЗАГРУЗКУ ИЗОБРАЖЕНИЯ -->
+                                <!-- что-то вроде comment[7] -->
+                                <a href="../../profile{{comment[1]}}">
+                                  {%if comment[8] == 'ADMIN'%}
+                                  <img src="../../../static/img/icons/default_av.png" class="comm-admin-img">
+                                  {%else%}
+                                  <img src="../../../static/img/icons/default_av.png" class="comm-user-img">
+                                  {%endif%}
+                                </a>
+                              </div>
+                              <div class="comm-date-container">
+                                <span>{{comment[8]}}</span>
+                              </div>
+                            </div>
+                            <div class="comm-date">
+                              <span>{{comment[5]}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  {%endfor%}
+                {%endif%}
+                
+                <section id="write-comm">
+                  <div class="write-comm-container">
+                    {%if session['user_id']%}
+                      <button id="write-comm-button">
+                        Написать комментарий
+                      </button>
+                    {%else%}
+                    <a href="/auth/log_in">
+                      <button id="write-comm-button">
+                        Написать комментарий
+                      </button>
+                    </a>
+                    {%endif%}
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+
+<footer id="footer">
+  <div class="container-fluid pb-3 pt-3 bg-custom navbar-dark">
+      <ul class="nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/about_site">
+            О сайте
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/contacts">
+            Контакты
+          </a>
+        </li>
+        {%if 'is_guide' not in session and 'is_admin' not in session%}
+        <li class="nav-item active">
+          <a class="nav-link bordered" href="/auth/become_a_guide">
+            Стать гидом
+          </a>
+        </li>
+        {%endif%}
+      </ul>
+  </div>
+</footer>
+
+<script src="../../static/js-scripts/articles.js"></script>
+
+{%endblock%}

@@ -1,0 +1,49 @@
+{% extends 'base_page.html' %}
+
+{% block title %}Ошибка{% endblock %}
+
+{% block head_info %}
+<meta description='Error'>
+<link rel="stylesheet" href="../static/css/articles.css">
+{% endblock %}
+
+
+<!-- body -->
+{% block BODY_header_links %}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Статьи
+                      </a>
+                    </li>
+{%endblock%}
+
+{% block BODY_main %}
+<!-- margin for header (86-h of header, 40-margin)-->
+<main role="main" style="margin-top:calc(86px + 40px)">
+  <article id="greetings">
+    <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+      <div class="d-flex flex-column">
+        <h1 style="color:crimson; font-size: 60px;">
+            {{error_title}}
+        </h1>
+        <h3 style="color:crimson; font-size: 40px;">
+            {{error_text}}
+        </h3>
+      </div>
+    </div>
+  </article>
+</main>
+{%endblock%}
+
+{% block BODY_footer %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/about_site">
+    О сайте
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="/contacts">
+    Контакты
+    </a>
+  </li>
+{%endblock%}

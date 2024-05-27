@@ -1,0 +1,150 @@
+{% extends 'base_page.html'%}
+
+{%block BODY_header_links%}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Статьи
+                      </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" onclick="window.location.href = document.referrer">
+                        Обратно
+                      </a>
+                    </li>
+{%endblock%}
+
+<!-- убираем картинку профиля -->
+{%block BODY_profile_btn%}
+<!-- убираем картинку, если профиль свой -->
+{% if session['user_id'] != user_info[0] %}
+  <a id='link-profile-img' class='pl-3' href="/profile">
+    {% if session['user_id'] %}
+        {% if session['is_guide']%}
+        <img id='profile-img' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+        {%else%}
+            <img id='profile-img' src="../static/img/icons/default_av.png" width="50px", height="50px"> 
+        {%endif%}
+    {% else %}
+      <img src="../static/img/icons/standart/registration.png" width="50px", height="50px">
+    {%endif%}
+  </a>
+{%endif%}
+{%endblock%}
+
+{%block BODY_main%}
+        <!-- margin for header (86-h of header, 40-margin)-->
+        <main role="main" style="margin-top:calc(86px + 40px)">
+
+          <!-- отображение сообщений -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        {%if category == 'error'%}
+                            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        {%else%}
+                            <div class="alert alert-success alert-dismissable fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        {%endif%}
+                        {%endfor%}
+                    {% endif %}
+                    {%endwith%}
+
+          <article id="profile-info">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
+              <div class="d-flex flex-column">
+                <h1>{%block BODY_PROFILE_name%}{%endblock%}</h1>
+                <div class="profile-main-img-container mb-20px">
+                  {%block BODY_PROFILE_img%}
+                  {%endblock%}
+                </div>
+                <div class="user-info-container">
+                    <ul>
+                      <li>
+                        <div>Имя пользователя:</div>
+                        <span id="user-name">{{user_info[1]}}</span>
+                      </li>
+                      <li>
+                        <div>Дата регистрации:</div>
+                        <span id="user-reg-date">{{user_info[3]}}</span>
+                      </li>
+                      <li>
+                        <div>Количество комментариев:</div>
+                        <span id="user-comm-num">{{user_info[4]}}</span>
+                      </li>
+                      <li>
+                        <div>Дата рождения:</div>
+                        <span id="user-birth-date">{{user_info[5]}}</span>
+                      </li>
+                      {%if ('user_id' in session) and (user_info[0] == session["user_id"])%}
+                        <li>
+                          <div>Логин:</div>
+                          <span id="user-login">{{user_info[6]}}</span>
+                        </li>
+                        <li>
+                          <div>Пароль</div>
+                          <span id="user-password">{{user_info[7]}}</span>
+                        </li>
+                      {%endif%}
+                    </ul>
+                </div>
+                {%block BODY_PROFILE_guide_info%}
+                {%endblock%}
+
+                <!-- logout кнопка -->
+                {%if ('user_id' in session) and (user_info[0] == session["user_id"])%}
+                <section class="logout">
+                  <div class="logout-container">
+                    <button id="logout-button">
+                        Выйти из аккаунта
+                    </button>
+                  </div>
+                </section>
+                {%elif 'is_admin' in session%}
+                <section class="delete">
+                  <form method="POST">
+                    <div class="delete-container">
+                      <button id="delete-button" type="submit" name="submit_button">
+                          Удалить аккаунт
+                          <img src="../static/img/icons/standart/cross.png" style="height:80%; padding-left:10px;">
+                      </button>
+                    </div>
+                  </form>
+                </section>
+                {%endif%}
+              </div>
+            </div>
+          </article>
+        </main>
+
+        {%block BODY_PROFILE_admin_color%}
+        {%if user_info[1] == 'ADMIN' %}
+          <script src="../static/js-scripts/admin_color.js"></script>
+        {%endif%}
+        {%endblock%}
+{%endblock%}
+        
+{% block BODY_footer %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/about_site">
+          О сайте
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contacts">
+          Контакты
+        </a>
+      </li>
+{%endblock%}
+
+{%block profile_script%}
+<script src="../static/js-scripts/profile.js"></script>
+{%endblock%}

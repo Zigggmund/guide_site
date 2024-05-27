@@ -1,0 +1,70 @@
+{% extends 'auth/base_form.html' %}
+
+{%block title%}Создать аккаунт{%endblock%}
+
+{%block head_info%}
+        <meta description='Create account'>
+        <link rel="stylesheet" href="../../static/css/auth/create_account.css">
+{%endblock%}
+
+{%block BODY_form_heading%}Создать аккаунт{%endblock%}
+
+{%block BODY_form_fields%}
+                <section id="main-info">
+                  <div class="d-flex flex-column g-20">
+                      <div id='name' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Имя пользователя</span>
+                          </div>
+                          <input name="user_name" type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='date_of_birth' class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text" id="field">Дата рождения</span>
+                          </div>
+                          <input name="user_date_of_birth" type="text" class="form-control" placeholder="Нужно заполнить" required>
+                      </div>
+                      <div id='email' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Электронная почта</span>
+                        </div>
+                        <input name="user_email" type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                    </div>
+                    <div id='login' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Логин</span>
+                        </div>
+                        <input name='user_login' type="text" class="form-control bg-custom-bright" placeholder="Нужно заполнить" required>
+                    </div>
+                    <div id='password' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Пароль</span>
+                        </div>
+                        <input name='user_password' type="text" class="form-control" placeholder="Нужно заполнить" required>
+                    </div>
+                    <div id='confirm-password' class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="field">Подтвердите пароль</span>
+                        </div>
+                        <input name='user_password2' type="text" class="form-control" placeholder="Нужно заполнить" required>
+                    </div>
+                    <div id="permission-for-letters" class="form-check">
+                        <input name="user_consent_messages" value="yes" id="checkbox-for-letters" class="form-check-input" type="checkbox" value="" checked>
+                        <label class='form-for-label' for="checkbox-for-letters">Я согласен получать оповещения на почту</label>
+                    </div>
+                    <div id="permission-for-data" class="form-check">
+                        <input name="permission-for-data" id="checkbox-for-data" class="form-check-input" type="checkbox" value="" required>
+                        <label class='form-for-label' for="checkbox-for-data">Я согласен на обработку персональных данных</label>
+                    </div>
+                </section>
+
+                <!-- КНОПКА -->
+                <!-- ПОДТВЕРЖДЕНИЕ ПОЧТЫ НЕ ДОДЕЛАНО -->
+                <!-- <a onclick="window.location.href='../../confirm_email/html/index.html';"> -->
+                <button id='button-confirm' type="submit" class='btn' height="70px">
+                    <div class='d-flex g-10'>
+                        <h4 class="pt-1">Зарегистроваться</h4>
+                        <img src="../../static/img/icons/standart/check.png" height="40px" width="40px" style="filter: brightness(0) invert(1);">
+                    </div>
+                </button>
+{%endblock%}

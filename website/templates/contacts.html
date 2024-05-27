@@ -1,0 +1,49 @@
+{% extends 'base_page.html' %}
+
+{%block title%}Контакты{%endblock%}
+
+{%block head_info%}
+  <meta description='Contacts'>
+  <link rel="stylesheet" href="../static/css/site_info.css">
+{%endblock%}
+    
+{% block BODY_header_links %}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/articles">
+                        Статьи
+                      </a>
+                    </li>
+{%endblock%}
+
+{%block BODY_main %}
+        <!-- margin for header (86-h of header, 40-margin)-->
+        <main role="main" style="padding-top:calc(86px + 80px); padding-bottom:80px;">
+          <article id="contacts">
+            <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 text-center">
+              <h1>Контакты</h1>
+              <div class="contacts-flex">
+                <div class="flex-item">
+                  <div>Электронная почта:</div>
+                  <span>dh_w0rk@mail.ru</span>
+                </div>
+                <!-- удалить -->
+                <div class="flex-item">
+                  <div>Тестовый пункт на проверку длинного текста:</div>
+                  <span>Тут длииииииииииииииииииииииинный текст</span>
+                </div>
+                <div class="flex-item">
+                  <div>Телефонный номер:</div>
+                  <span>+7 999 999 99 99</span>
+                </div>
+              </ul>
+            </div>
+          </article>
+{%endblock%}
+
+{%block BODY_footer%}
+              <li class="nav-item active">
+                <a class="nav-link" href="/about_site">
+                  О сайте
+                </a>
+              </li>
+{%endblock%}
