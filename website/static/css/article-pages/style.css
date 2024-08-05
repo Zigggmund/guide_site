@@ -298,4 +298,11 @@ footer a {
 .bordered {
     border: 2px solid var(--title-main);
     border-radius: 20%;
+} .landmark-img {
+    border: 1.5px solid var(--title-main);
+    margin-top: 10px;
+    margin-bottom: 30px;
+} figcaption {
+    font-style: italic;
+    opacity: 0.6;
 }

@@ -23,9 +23,9 @@ def home_logout(is_logout):
     return render_template('home.html')
 
 
-@views.route('/error<error_title><error_text>')
-def error(error_title, error_text):
-    return render_template('error.html', error_title=error_title, error_text=error_text)
+@views.route('/error<error_text>')
+def error(error_text):
+    return render_template('error.html', error_text=error_text)
 
 @views.route('/about_site')
 def about_site():

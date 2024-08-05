@@ -38,11 +38,13 @@
                         Другие статьи
                       </a>
                     </li>
+                    {%if article_info[2] != 'other'%}
                     <li class="nav-item active">
-                      <a class="nav-link" id="back">
+                      <a class="nav-link" id="vdcback">
                         Обратно к статье
                       </a>
                     </li>
+                    {%endif%}
                   </ul>
                 </div>
                 <a id='link-profile-img' class='pl-3' href="/profile">

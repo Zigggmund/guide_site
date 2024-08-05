@@ -102,6 +102,12 @@ div.grey-block {
 
 /* для contacts */
 
+.contacts-info {
+    text-align: left !important;
+    margin-bottom: 30px;
+    font-size: 125%;
+    color: var(--header-footer)
+}
 .contacts-flex {
     text-align: start;
     display: flex;
