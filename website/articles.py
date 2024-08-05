@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, flash
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 import psycopg2
 from .connect_db import *
 
@@ -16,6 +16,8 @@ cur.close(), conn.close()
 def generate_func():
     for article in articles_list:
         @articles.route(f'/{article[2]}', methods=['GET', 'POST'])
+
+        # ARTICLES
         def __dynamic_func():
             conn = connect()
             cur = conn.cursor()
@@ -78,9 +80,13 @@ def generate_func():
             article_comments = cur.fetchall()
             print('-----', article_comments, type(article_comments), len(article_comments), '-----', sep='\n')
             cur.close(), conn.close()
-            return render_template(f'article-pages/{request.path.split("/")[-1]}.html', article_info=article, article_comments=article_comments)
+            if article[2] != 'other':
+                return render_template(f'article-pages/{request.path.split("/")[-1]}.html', article_info=article, article_comments=article_comments)
+            else:
+                return redirect(url_for('views.error', error_text='Некорректный URL: Возможно вы хотели перейти к предложениям гидов без категории?'))
         __dynamic_func.__name__ = article[2]
 
+        # ADS
         @articles.route(f'/{article[2]}/ads<sorting>', methods=['POST', 'GET'])
         def __dynamic_func2(sorting):
             sorting = sorting[1:-1]
@@ -121,7 +127,7 @@ def generate_func():
                 # НАПИСАТЬ КОММЕНТАРИЙ
                 elif 'write' in request.form['submit_button']:
                     print('WRITING AD COMMENT')
-                    ad_id = request.form['submit_button'].split('write')[1]
+                    ad_id = request.form['submit_buttofn'].split('write')[1]
                     comm_text = request.form[f"comment_text{ad_id}"]
                     comm_rate = request.form[f"comment_rate{ad_id}"]
                     try:
@@ -196,7 +202,8 @@ def generate_func():
 
 generate_func()
 
+
 @articles.route('/')
 def home():
     # выводит шаблон home.index из templates
-    return render_template('articles.html', articles=articles_list)
+    return render_template('articles.html', articles=[el for el in articles_list if el[2] != 'other'])

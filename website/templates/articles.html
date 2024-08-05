@@ -7,6 +7,14 @@
 <link rel="stylesheet" href="../static/css/articles.css">
 {% endblock %}
 
+{%block BODY_header_links%}
+<li class="nav-item active">
+  <a class="nav-link" href="/articles/other/ads<date>" style="border: 2px solid white; border-radius: 20%;">
+      Предложения гидов без категории
+  </a>
+</li>
+{%endblock%}
+
 {% block BODY_main %}
 <!-- margin for header (86-h of header, 40-margin)-->
 <main role="main" style="margin-top:calc(86px + 40px)">
