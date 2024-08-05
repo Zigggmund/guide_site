@@ -26,7 +26,7 @@ write_comm_btn.addEventListener('click', (e) => {
 
         let fields = document.createElement('section')
         fields.innerHTML = `
-            <input name='comment_rate' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку(или оставьте это поле пустым)">
+            <input name='comment_rate' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку от 1 до 10(или оставьте это поле пустым)">
             <input name='comment_text' type="textarea" class="form-control bg-custom-bright" placeholder="Введите комментарий">
         `
         

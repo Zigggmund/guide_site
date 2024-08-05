@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, flash, session, redirect
-from werkzeug.security import generate_password_hash, check_password_hash
 from .connect_db import *
+
+# !!! ДЛЯ ГЕНЕРАЦИИ SALT ИСПОЛЬЗУЕТСЯ АЛГОРИТМ -md5- !!!
 
 auth = Blueprint('auth', __name__)
 
@@ -17,11 +18,13 @@ def log_in():
         conn = connect()
         cur = conn.cursor()
         try:
-            cur.execute(f"SELECT * FROM users WHERE user_login = '{request.form['user_login']}' AND user_password = '{request.form['user_password']}'")
+            # проверка хэша пароля
+            cur.execute(f"SELECT * FROM users WHERE user_login = '{request.form['user_login']}' AND user_password = crypt('{request.form['user_password']}', 'salt')")
             user_info = cur.fetchall()[0]
-
+                
             flash('Вход совершен')
             session['user_id'] = user_info[0]
+            session['password'] = request.form['user_password']
             
             cur.execute(f'SELECT * FROM guides WHERE guide_id={session["user_id"]}')
             guide_info = cur.fetchall()
@@ -30,9 +33,9 @@ def log_in():
             if check_admin(user_info): session['is_admin'] = 'true'
             return redirect('/profile')
         except (IndexError):
-            flash('Такого пользователя не существует: Перепроверьте логин и пароль', 'error')
-        except (Exception):
-            flash('Вход не совершен: Неизвестная ошибка', 'error')
+            flash('Пользователя с такими данными не существует: Проверьте логин и пароль', 'error')
+        # except (Exception):
+        #     flash('Вход не совершен: Неизвестная ошибка', 'error')
         conn.close(), cur.close()
     return render_template('auth/log_in.html', boolean=True)
 
@@ -48,6 +51,11 @@ def sign_up():
             if len(cur.fetchall()) > 0:
                 flash('Регистрация не завершена: Пользователь с таким логином уже есть', 'error')
                 raise ValueError
+            # если уже есть такое имя пользователя
+            cur.execute(f"SELECT * FROM users WHERE user_name = '{request.form['user_name']}'")
+            if len(cur.fetchall()) > 0:
+                flash('Регистрация не завершена: Пользователь с таким именем уже есть', 'error')
+                raise ValueError
 
             user_cm = 'true' if len(request.form.getlist('user_consent_messages')) == 1 else 'false'
             cur.execute(f'''insert into users
@@ -58,7 +66,7 @@ def sign_up():
                 '{request.form['user_date_of_birth']}',
                 '{request.form['user_email']}',
                 '{request.form['user_login']}',
-                '{request.form['user_password']}',
+                crypt('{request.form['user_password']}', 'salt'),
                 {user_cm}
                 );
             ''')
@@ -66,15 +74,19 @@ def sign_up():
             if request.form['user_password'] != request.form['user_password2']:
                 flash('Регистрация не завершена: Ошибка при проверке паролей(пароли не равны между собой)', 'error')
                 raise ValueError
+            if len(request.form['user_password']) < 8 or len(request.form['user_name']) > 20:
+                flash('Регистрация не завершена: Ошибка при валидации пароля(требуемый диапозон от 8 до 20)', 'error')
+                raise ValueError
             if request.form['user_name'] != request.form['user_name'].lower():
                 flash('Регистрация не завершена: Ошибка при валидации имени(превышена макс длина - 20 или имя содержит заглавные буквы)', 'error')
                 raise ValueError
 
             flash('Регистрация прошла успешно')
             conn.commit()
+            session['password'] = request.form['user_password']
             if 'is_guide' in session: session.pop('is_guide')
 
-            cur.execute(f"SELECT * FROM users WHERE user_login = '{request.form['user_login']}' AND user_password = '{request.form['user_password']}'")
+            cur.execute(f"SELECT * FROM users WHERE user_login = '{request.form['user_login']}'")
             user_info = cur.fetchall()[0]
             session['user_id'] = user_info[0]
 
@@ -85,8 +97,6 @@ def sign_up():
                 flash('Регистрация не завершена: Ошибка при валидации имени(превышена макс длина - 20 или имя содержит заглавные буквы)', 'error')
             elif len(request.form['user_login']) < 3 or len(request.form['user_name']) > 20:
                 flash('Регистрация не завершена: Ошибка при валидации логина(требуемый диапозон от 3 до 20)', 'error')
-            elif len(request.form['user_password']) < 8 or len(request.form['user_name']) > 20:
-                flash('Регистрация не завершена: Ошибка при валидации пароля(требуемый диапозон от 8 до 20)', 'error')
             else: 
                 flash('''Регистрация не завершена: Ошибка при валидации даты 
                 (слишком старая дата или неправильный формат). 

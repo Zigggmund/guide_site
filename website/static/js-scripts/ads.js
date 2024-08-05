@@ -106,7 +106,7 @@ write_comm_buttons.forEach((el) => {
 
             let fields = document.createElement('section')
             fields.innerHTML = `
-                <input name='comment_rate`+ad_id+`' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку (ОБЯЗАТЕЛЬНО для заполнения)">
+                <input name='comment_rate`+ad_id+`' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку от 1 до 10(ОБЯЗАТЕЛЬНО для заполнения)">
                 <input name='comment_text`+ad_id+`' type="textarea" class="form-control bg-custom-bright" placeholder="Введите комментарий">
             `
             

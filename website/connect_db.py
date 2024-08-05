@@ -1,4 +1,5 @@
 import psycopg2
+from flask import request
 
 def connect():
     conn = psycopg2.connect(
@@ -20,6 +21,6 @@ def get_image(pid):
     return response
 
 # ПЕРЕСОЗДАТЬ ВСЕ БД
-# изменить тип user_date_of_birh на date 
 # изменить default для profile_image на хэш картинки лк
-# изменить тип password на bytea
+
+# print(request.files['../static/img/icons/default_av.png'].read())
