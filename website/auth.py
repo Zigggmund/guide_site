@@ -116,6 +116,21 @@ def become_a_guide():
     if request.method == 'POST':
         conn = connect()
         cur = conn.cursor()
+        print(f'''insert into guides
+                    (guide_id, guide_first_name, guide_last_name, guide_father_name, 
+                    guide_info, guide_phone_number, guide_passport, 
+                    guide_licence_number, guide_licence_date) 
+                    values(
+                    {session['user_id']},
+                    '{request.form['guide_first_name']}',
+                    '{request.form['guide_last_name'] }',
+                    '{request.form['guide_father_name'] }',
+                    '{request.form['guide_info']}',
+                    '{request.form['guide_phone_number'] }',
+                    '{request.form['passport-series']+' '+request.form['passport-number']}',
+                    '{request.form['guide_licence_number'] }',
+                    '{request.form['guide_licence_date'] }'
+                    ''')
         try:
             if len(request.form["guide_info"]) > 0:
                 cur.execute(f'''insert into guides

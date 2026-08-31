@@ -28,11 +28,19 @@
             {%block BODY_profile_btn%}
             <a id='link-profile-img' class='pl-3' href="/profile">
                 {% if session['user_id'] %}
-                    {% if session['is_guide']%}
-                    <img id='profile-img' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
-                    {%else%}
-                        <img id='profile-img' src="../static/img/icons/default_av.png" width="50px", height="50px"> 
-                    {%endif%}
+                  {%if session['is_blocked']%}
+                    <!-- берем изображение blocked_av -->
+                    <img id='profile-img' class="blocked-profile" src="../static/img/icons/blocked_av.png" width="50px", height="50px"> 
+                  {%elif session['is_guide']%}
+                    <!-- берем изображение из бд -->
+                    <img id='profile-img' class='guide-profile' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                  {%elif session['is_admin']%}
+                    <!-- берем изображение из бд, но оно всегда admin_av-->
+                    <img id='profile-img' class="admin-profile" src="../static/img/icons/admin_av.png" width="50px", height="50px"> 
+                  {%else%}
+                  <!-- берем изображение из бд -->
+                    <img id='profile-img' class="user-profile" src="../static/img/icons/default_av.png" width="50px", height="50px"> 
+                  {%endif%}
                 {% else %}
                   <img id='profile-img' src="../static/img/icons/standart/registration.png" width="50px", height="50px">
                 {%endif%}

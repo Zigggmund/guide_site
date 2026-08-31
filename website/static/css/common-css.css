@@ -1,0 +1,48 @@
+:root {
+    --header-footer: #203244;
+    --background-main: #E9ECEF;
+    --title-main: #D82D2D;
+    --text-main: #212529;
+    --text-main: #212529;
+    --dark-main: #9D1F1F;
+
+    --empty-field: color-mix(in srgb, var(--dark-background-20) 20%, white);
+    --bright-main: color-mix(in srgb, var(--title-main) 80%, white);
+    --dark-background-20: color-mix(in srgb, var(--header-footer) 20%, var(--background-main));
+    --dark-background-40: color-mix(in srgb, var(--header-footer) 40%, var(--background-main));
+
+    --admin-color: #4682B4;
+    --freeze-dark: #1373b3;
+    --admin-bright: color-mix(in srgb, white 40%, var(--admin-color));
+
+    /* guide-colors */
+    --guide-main: #4CF15D;
+    --guide-bright: color-mix(in srgb, var(--text-main) 25%, #4CF15D);
+    --guide-half-dark: color-mix(in srgb, var(--text-main) 40%, #4CF15D);
+    --guide-dark: color-mix(in srgb, var(--text-main) 50%, #4CF15D);
+    
+    /* auth-colors */
+    --button-background: color-mix(in srgb, var(--dark-background-20) 20%, var(--title-main));
+    --form-background: color-mix(in srgb, white 45%, var(--title-main));
+}
+
+#profile-img {
+    cursor: pointer;
+} #profile-img.guide-profile, .comm-guide-img {
+    border: 3px solid var(--guide-half-dark);
+} #profile-img.admin-profile, .comm-admin-img {
+    border: 4px solid var(--admin-color);
+} #profile-img.blocked-profile, .comm-blocked-img {
+    border: 3px solid var(--background-main)
+} #profile-img.user-profile, .comm-user-img {
+    border: 1px solid var(--title-main);
+} #profile-img.moder-profile, .comm-moder-img {
+    border: 3px dotted var(--admin-color)
+}
+
+.comm-user-img, .comm-admin-img, .comm-guide-img {
+    object-fit: fill;
+    height: 34px;
+    width: 34px;
+}
+

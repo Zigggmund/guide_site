@@ -6,10 +6,12 @@ const back_btn = document.querySelector('#back-btn')
 const write_comm_btn = document.querySelector('#write-comm-button')
 const delete_buttons = Array.from(document.querySelectorAll('.exit-btn'))
 
-back_btn.addEventListener('click', (e) => {
-    // через onclick строку не передать
-    window.location.href = window.location.href + '/ads<date>'
-})
+if (back_btn) {
+        back_btn.addEventListener('click', (e) => {
+        // через onclick строку не передать
+        window.location.href = window.location.href + '/ads<date>'
+    })
+}
 
 write_comm_btn.addEventListener('click', (e) => {
     let parent = e.target.parentElement.parentElement
@@ -26,7 +28,7 @@ write_comm_btn.addEventListener('click', (e) => {
 
         let fields = document.createElement('section')
         fields.innerHTML = `
-            <input name='comment_rate' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку от 1 до 10(или оставьте это поле пустым)">
+            <input name='comment_rate' type="text" class="form-control bg-custom-bright" placeholder="Введите оценку(или оставьте это поле пустым)">
             <input name='comment_text' type="textarea" class="form-control bg-custom-bright" placeholder="Введите комментарий">
         `
         

@@ -1,15 +1,3 @@
-
-:root {
-    --header-footer: #203244;
-    --background-main: #E9ECEF;
-    --title-main: #D82D2D;
-    --text-main: #212529;
-    --text-main: #212529;
-    --dark-main: #9D1F1F;
-
-    --admin-color: #4682B4;
-}
-
 /* для footer */
 html { 
     /* отступ - сумма отступов от header до main */
@@ -62,11 +50,6 @@ li a {
     cursor: pointer;
 }
 
-#profile-img {
-    border: 1px solid var(--title-main);
-    cursor: pointer;
-}
-
 /* main */
 
 div.grey-block {
@@ -82,7 +65,9 @@ div.grey-block {
 .mb-40px {
     margin-bottom: 40px;
 }
-
+.mb-30px {
+    margin-bottom: 30px;
+}
 .mb-20px {
     margin-bottom: 20px;
 }
@@ -133,20 +118,27 @@ div.grey-block {
     font-size: 20px;
 }
 
-.logout-container, .delete-container {
+.bottom-button-container {
     text-align: center;
 }
 
-#logout-button, #delete-button {
+#logout-button, #delete-button, #freeze-button {
     font-size: 26px;
     color: white;
-
-    background-color: var(--title-main);
     border: 3px solid var(--header-footer);
     border-radius: 10%;
     padding-left: 20px;
     padding-right: 20px;
     height: 50px;
+} #logout-button, #delete-button {
+    background-color: var(--title-main);
+} .freeze-buttons {
+    background-color: var(--admin-color);
+} .modal {
+    /* position: fixed; */
+    display: none;
+
+    /* inset: 0; */
 }
 
 /* footer */

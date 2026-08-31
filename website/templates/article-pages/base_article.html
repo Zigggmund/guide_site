@@ -1,9 +1,14 @@
 {%extends 'base.html'%}
 
+{%block logo%}<link rel="icon" href="../../static/img/icons/logo_final.png">{%endblock%}
+
 {%block title%}{{article_info[3]}}{%endblock%}
 
 {%block common_head_info%}
         <link rel="stylesheet" href="../../../static/css/article-pages/style.css">
+{%endblock%}
+{%block common_css%}
+        <link rel="stylesheet" href='../../static/css/common-css.css'>
 {%endblock%}
 
 {%block body%}
@@ -41,10 +46,14 @@
                 </div>
                 <a id='link-profile-img' class='pl-3' href="/profile">
                   {% if session['user_id'] %}
-                    {% if session['is_guide']%}
-                      <img id='profile-img' src="../../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                    {%if session['is_blocked']%}
+                      <img id='profile-img' class="blocked-profile" src="../../static/img/icons/blocked_av.png" width="50px", height="50px"> 
+                    {%elif session['is_guide']%}
+                      <img id='profile-img' class='guide-profile' src="../../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+                    {%elif session['is_admin']%}
+                      <img id='profile-img' class="admin-profile" src="../../static/img/icons/admin_av.png" width="50px", height="50px"> 
                     {%else%}
-                      <img id='profile-img' src="../../static/img/icons/default_av.png" width="50px", height="50px"> 
+                      <img id='profile-img' class="user-profile" src="../../static/img/icons/default_av.png" width="50px", height="50px"> 
                     {%endif%}
                   {% else %}
                     <img id='profile-img' src="../../static/img/icons/standart/registration.png" width="50px", height="50px">
@@ -182,9 +191,17 @@
                                 <!-- ДОДЕЛАТЬ ЗАГРУЗКУ ИЗОБРАЖЕНИЯ -->
                                 <!-- что-то вроде comment[7] -->
                                 <a href="../../profile{{comment[1]}}">
-                                  {%if comment[8] == 'ADMIN'%}
-                                  <img src="../../../static/img/icons/default_av.png" class="comm-admin-img">
+                                  {%if comment[9] == 9 %}
+                                  <!-- из бд админ-->
+                                  <img src="../../../static/img/icons/admin_av.png" class="comm-admin-img">
+                                  {%elif comment[9] == 2 %}
+                                  <!-- из бд гид-->
+                                  <img src="../../../static/img/icons/default_av.png" class="comm-guide-img">
+                                  {%elif comment[9] == 3 %}
+                                  <!-- НЕ ИЗ БД, замороженный-->
+                                  <img src="../../../static/img/icons/blocked_av.png" class="comm-blocked-img">
                                   {%else%}
+                                  <!-- из бд юзер -->
                                   <img src="../../../static/img/icons/default_av.png" class="comm-user-img">
                                   {%endif%}
                                 </a>

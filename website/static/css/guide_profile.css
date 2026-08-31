@@ -1,15 +1,3 @@
-
-:root {
-    --header-footer: #203244;
-    --background-main: #E9ECEF;
-    --title-main: #D82D2D;
-    --text-main: #212529;
-    --dark-main: #9D1F1F;
-
-    --guide-main: color-mix(in srgb, var(--text-main) 40%, #4CF15D);
-    --dark-bacground: color-mix(in srgb, var(--header-footer) 20%, var(--background-main));
-}
-
 /* для footer */
 html { 
     /* отступ - сумма отступов от header до main */
@@ -70,22 +58,22 @@ li a {
 /* main */
 
 div.grey-block {
-    /* background-color: var(--background-main); */
+    background-color: var(--dark-background-40);
     color: var(--text-main);
     border-radius: 5%;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 14px;
     padding-bottom: 20px;
-
-    background-color: var(--dark-bacground);
     border: 3px solid var(--guide-main)
 }
 
 .mb-40px {
     margin-bottom: 40px;
 }
-
+.mb-30px {
+    margin-bottom: 30px;
+}
 .mb-20px {
     margin-bottom: 20px;
 }
@@ -143,20 +131,47 @@ div.grey-block {
     font-size: 20px;
 }
 
-.logout-container, .delete-container {
+.bottom-button-container {
     text-align: center;
 }
 
-#logout-button, #delete-button {
+#logout-button, #delete-button, #freeze-button {
     font-size: 26px;
     color: white;
 
-    background-color: var(--title-main);
     border: 3px solid var(--header-footer);
     border-radius: 10%;
     padding-left: 20px;
     padding-right: 20px;
     height: 50px;
+} #logout-button, #delete-button {
+    background-color: var(--title-main);
+} .freeze-buttons {
+    background-color: var(--admin-color);
+}
+
+#modal-block {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.4
+                );
+    display: none;
+} .show {
+    display: block !important;
+} #close-modal {
+    position: fixed;
+    right: 10%;
+    top: 20%;
 }
 
 /* footer */

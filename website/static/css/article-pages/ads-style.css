@@ -1,22 +1,3 @@
-:root {
-    --header-footer: #203244;
-    --background-main: #E9ECEF;
-    --text-main: #212529;
-    --text-main: #212529;
-
-    --title-main: #D82D2D;
-    --dark-main: #9D1F1F;
-    --bright-main: color-mix(in srgb, var(--title-main) 80%, white);
-    --admin-color: #4682B4;
-
-    --guide-bright: color-mix(in srgb, var(--text-main) 25%, #4CF15D);
-    --guide-dark: color-mix(in srgb, var(--text-main) 50%, #4CF15D);
-
-    --dark-background-20: color-mix(in srgb, var(--header-footer) 20%, var(--background-main));
-    --dark-background-40: color-mix(in srgb, var(--header-footer) 40%, var(--background-main));
-    --empty-field: color-mix(in srgb, var(--dark-background-20) 20%, white);
-}
-
 /* для footer */
 html { 
     height: 100%
@@ -297,18 +278,6 @@ div.comm-box {
 .comm-low .comm-info-flex .comm-user .comm-user-img-container {
     height: 35px;
     width: 35px;
-}
-
-.comm-low .comm-info-flex .comm-user .comm-user-img-container .comm-user-img {
-    object-fit: fill;
-    height: 34px;
-    width: 34px;
-    border: 1px solid var(--text-main); 
-} .comm-admin-img {
-    object-fit: fill;
-    height: 34px;
-    width: 34px;
-    border: 2px solid var(--admin-color); 
 }
 
 .comm-low span {

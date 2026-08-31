@@ -5,7 +5,9 @@
 
         <!-- <meta description='Articles'> -->
         <title>{%block title%}{%endblock%}</title>
+        {%block logo%}
         <link rel="icon" href="../static/img/icons/logo_final.png">
+        {%endblock%}
         <!-- это для фотографий, но они пока НЕ ДОДЕЛАНЫ -->
         {%block img_script%}
         <script type="text/javascript" src="../static/js-scripts/img_box.js"></script>
@@ -16,6 +18,10 @@
         {%block common_head_info%}{%endblock%}
         <!-- <link rel="stylesheet" href="../static/css/articles.css"> -->
 
+        <!-- profile-img css file -->
+        {%block common_css%}
+        <link rel="stylesheet" href='../static/css/common-css.css'>
+        {%endblock%}
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

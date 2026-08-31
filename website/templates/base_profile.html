@@ -17,17 +17,25 @@
 {%block BODY_profile_btn%}
 <!-- убираем картинку, если профиль свой -->
 {% if session['user_id'] != user_info[0] %}
-  <a id='link-profile-img' class='pl-3' href="/profile">
-    {% if session['user_id'] %}
-        {% if session['is_guide']%}
-        <img id='profile-img' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
-        {%else%}
-            <img id='profile-img' src="../static/img/icons/default_av.png" width="50px", height="50px"> 
-        {%endif%}
-    {% else %}
-      <img src="../static/img/icons/standart/registration.png" width="50px", height="50px">
+<a id='link-profile-img' class='pl-3' href="/profile">
+  {% if session['user_id'] %}
+    {%if session['is_blocked']%}
+      <!-- берем изображение blocked_av -->
+      <img id='profile-img' class="blocked-profile" src="../static/img/icons/blocked_av.png" width="50px", height="50px"> 
+    {%elif session['is_guide']%}
+      <!-- берем изображение из бд -->
+      <img id='profile-img' class='guide-profile' src="../static/img/other/example_guide.jpg" width="50px", height="50px"> 
+    {%elif session['is_admin']%}
+      <!-- берем изображение из бд, но оно всегда admin_av-->
+      <img id='profile-img' class="admin-profile" src="../static/img/icons/admin_av.png" width="50px", height="50px"> 
+    {%else%}
+    <!-- берем изображение из бд -->
+      <img id='profile-img' class="user-profile" src="../static/img/icons/default_av.png" width="50px", height="50px"> 
     {%endif%}
-  </a>
+  {% else %}
+    <img id='profile-img' src="../static/img/icons/standart/registration.png" width="50px", height="50px">
+  {%endif%}
+</a>
 {%endif%}
 {%endblock%}
 
@@ -61,7 +69,7 @@
           <article id="profile-info">
             <div class="grey-block ml-sm-3 mr-sm-3 ml-md-4 mr-md-4 ml-lg-5 mr-lg-5 mb-40px text-center">
               <div class="d-flex flex-column">
-                <h1>{%block BODY_PROFILE_name%}{%endblock%}</h1>
+                <h1 id="profile-name">{%block BODY_PROFILE_name%}{%endblock%}</h1>
                 <div class="profile-main-img-container mb-20px">
                   {%block BODY_PROFILE_img%}
                   {%endblock%}
@@ -102,22 +110,50 @@
                 <!-- logout кнопка -->
                 {%if ('user_id' in session) and (user_info[0] == session["user_id"])%}
                 <section class="logout">
-                  <div class="logout-container">
+                  <div class="bottom-button-container">
                     <button id="logout-button">
                         Выйти из аккаунта
                     </button>
                   </div>
                 </section>
                 {%elif 'is_admin' in session%}
-                <section class="delete">
+                <section class="delete mb-30px">
                   <form method="POST">
-                    <div class="delete-container">
+                    <div class="bottom-button-container">
                       <button id="delete-button" type="submit" name="submit_button">
                           Удалить аккаунт
                           <img src="../static/img/icons/standart/cross.png" style="height:80%; padding-left:10px;">
                       </button>
                     </div>
                   </form>
+                </section>
+
+                <!-- freeze кнопка -->
+                <section class="freeze">
+                  <div class="bottom-button-container">
+                    <button href="#block-window" id="freeze-button" class='freeze-buttons' type="submit" name="freeze" style="font-size: 23px;">
+                      Заблокировать аккаунт
+                      <img src="../static/img/icons/standart/freeze.png" style="height:80%; padding-left:10px;">
+                    </button>
+                  </div>
+
+                  <div id='modal-block'>
+                    <div class="mb-40px">
+                      <span>Заблокировать аккаунт на:</span>
+                      <!-- <form method="POST"> -->
+                        <div class="flex-column">
+                          <button id='close-modal'>
+                            <img src="../static/img/icons/standart/cross.png">
+                          </button>
+                          <button class="freeze-buttons">1 день</button>
+                          <button class="freeze-buttons">7 дней</button>
+                          <button class="freeze-buttons">30 дней</button>
+                          <button class="freeze-buttons">90 дней</button>
+                          <input placeholder="Укажите количество дней">
+                        </div>
+                      </div>
+                      <!-- </form> -->
+                  </div>
                 </section>
                 {%endif%}
               </div>
@@ -126,8 +162,11 @@
         </main>
 
         {%block BODY_PROFILE_admin_color%}
+        <!-- user_type == 8 or 9 -->
         {%if user_info[1] == 'ADMIN' %}
           <script src="../static/js-scripts/admin_color.js"></script>
+        {%elif user_info[1] == 'stiv'%}
+        <script src="../static/js-scripts/moder_color.js"></script>
         {%endif%}
         {%endblock%}
 {%endblock%}

@@ -31,23 +31,30 @@ def generate_func():
                     print('*ARTICLE DATA SEND ATTEMPT*')
                     cur.execute(f'SELECT user_name FROM users WHERE user_id = {session["user_id"]}')
                     user_name = cur.fetchall()[0][0]
+
+                    # определение типа пользователя, написавшего комментарий
+                    user_type = 1
+                    if 'is_guide' in session: user_type = 2
+                    elif 'is_admin' in session: user_type = 9
                     try:
                         if len(request.form["comment_text"]) > 0:
                             if len(request.form["comment_rate"]) == 0:
-                                cur.execute(f'''INSERT INTO article_comments(article_id, user_id, comment_text, user_name)
+                                cur.execute(f'''INSERT INTO article_comments(article_id, user_id, comment_text, user_name, user_type)
                                 VALUES(
                                 {article[0]},
                                 {session["user_id"]},
                                 '{request.form["comment_text"]}',
-                                '{user_name}'
+                                '{user_name}',
+                                '{user_type}'
                                 );''')
                             else:
-                                cur.execute(f'''INSERT INTO article_comments(article_id, user_id, comment_rate, comment_text, user_name) VALUES(
+                                cur.execute(f'''INSERT INTO article_comments(article_id, user_id, comment_rate, comment_text, user_name, user_type) VALUES(
                                 {article[0]},
                                 {session["user_id"]},
                                 {int(request.form["comment_rate"])},
                                 '{request.form["comment_text"]}',
-                                '{user_name}'
+                                '{user_name}',
+                                '{user_type}'
                                 );''')
                             flash('Комментарий добавлен')
                             conn.commit()
@@ -127,20 +134,26 @@ def generate_func():
                 # НАПИСАТЬ КОММЕНТАРИЙ
                 elif 'write' in request.form['submit_button']:
                     print('WRITING AD COMMENT')
-                    ad_id = request.form['submit_buttofn'].split('write')[1]
+                    ad_id = request.form['submit_button'].split('write')[1]
                     comm_text = request.form[f"comment_text{ad_id}"]
                     comm_rate = request.form[f"comment_rate{ad_id}"]
+
+                    # определение типа пользователя, написавшего комментарий
+                    user_type = 1
+                    if 'is_guide' in session: user_type = 2
+                    elif 'is_admin' in session: user_type = 9
                     try:
                         if len(comm_text) > 0:
                             if len(comm_rate) > 0:
-                                cur.execute(f'''INSERT INTO ad_comments(article_id, user_id, ad_id, ad_comment_text, ad_comment_rate, user_name)
+                                cur.execute(f'''INSERT INTO ad_comments(article_id, user_id, ad_id, ad_comment_text, ad_comment_rate, user_name, user_type)
                                 VALUES(
                                 {article[0]},
                                 {session["user_id"]},
                                 {ad_id},
                                 '{comm_text}',
                                 {int(comm_rate)},
-                                '{user_name}'
+                                '{user_name}',
+                                '{user_type}'
                                 );''')
                                 flash('Комментарий добавлен')
                                 conn.commit()
@@ -193,9 +206,10 @@ def generate_func():
             else: cur.execute(f'SELECT * FROM full_ads_info WHERE article_id = {article[0]} ORDER BY ad_date DESC')
 
             article_ads = cur.fetchall()
-            print(article_ads)
+            print('ADS', article_ads)
             cur.execute(f'SELECT * FROM ad_comments WHERE article_id={article[0]}  ORDER BY ad_comment_date')
             ad_comments = cur.fetchall()
+            print('COMMENTS', ad_comments)
             cur.close(), conn.close()
             return render_template('article-pages/ads.html', article_info=article, article_ads=article_ads, ad_comments=ad_comments, sorting=sorting)
         __dynamic_func2.__name__ = article[2] + '_ads<sorting>'

@@ -1,16 +1,3 @@
-:root {
-    --header-footer: #203244;
-    --background-main: #E9ECEF;
-    --title-main: #D82D2D;
-    --dark-main: #9D1F1F;
-    --text-main: #212529;
-    --text-main: #212529;
-
-    --admin-color: #4682B4;
-    --dark-background-20: color-mix(in srgb, var(--header-footer) 20%, var(--background-main));
-    --empty-field: color-mix(in srgb, var(--dark-background-20) 20%, white);
-}
-
 body {
     color: var(--text-main);
     font-family: 'Roboto', sans-serif !important;
@@ -246,18 +233,6 @@ div.comm-box {
 .comm-box .comm-low .comm-info-flex .comm-user .comm-user-img-container {
     height: 35px;
     width: 35px;
-}
-
-.comm-box .comm-low .comm-info-flex .comm-user .comm-user-img-container .comm-user-img {
-    object-fit: fill;
-    height: 34px;
-    width: 34px;
-    border: 1px solid var(--text-main); 
-} .comm-admin-img {
-    object-fit: fill;
-    height: 34px;
-    width: 34px;
-    border: 2px solid var(--admin-color); 
 }
 
 .comm-box span {
