@@ -25,7 +25,7 @@ Before starting the local setup, ensure you have Python 3.8+ installed and a run
 #### Step-by-Step Installation
 1. Clone the repository and navigate to the project root folder:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/Zigggmund/guide_site.git
    cd BlogPointFrontend
    ```
 
@@ -74,7 +74,7 @@ BlogPoint — это информационный веб-сайт и сборн�
 #### Пошаговая установка
 1. Клонируйте репозиторий и перейдите в корень проекта:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/Zigggmund/guide_site.git
    cd BlogPointFrontend
    ```
 
