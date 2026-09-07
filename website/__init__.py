@@ -1,8 +1,11 @@
 from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy
+from .connect_db import init_db
 
 def create_app():
     app = Flask(__name__)
+
+    init_db()
 
     # импорт переменной views
     from .views import views
