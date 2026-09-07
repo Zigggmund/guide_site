@@ -2,27 +2,27 @@
 
 ---
 
-### Project Overview
-BlogPoint is an information website and a collection of articles about tourism in the Krasnoyarsk Territory, featuring an integrated system for listing and managing guide services. 
+### Overview
+BlogPoint is an information website and a collection of articles about tourism in the Krasnoyarsk Territory, featuring an integrated system for listing and promoting professional guide services. 
 
-The backend architecture implements business logic for three primary actor groups defined in the system requirements:
-* Guide: Can create, format, and publish travel advertisements and service listings.
-* User: Can browse information about the website, read articles, and view guide offers. Authenticated users can write comments under articles or service listings.
-* Administrator: Holds elevated privileges to moderate the platform, including deleting inappropriate advertisements, comments, or blocking users.
+The backend architecture implements business logic for three key user roles defined by the use case diagram:
+* Guide: Has the ability to create, edit, and publish advertisements for their tourism services.
+* User: Can browse general information about the website, read articles, and view guide offers. Authorized users gain access to writing comments under articles and advertisements.
+* Administrator: Holds moderation privileges for the platform, including deleting inappropriate advertisements or comments, as well as managing user profiles (deleting users).
 
-This repository contains the REST API backend implemented in Python using the Flask framework.
+This repository represents the server-side backend developed in Python using the Flask framework.
 
 ### Tech Stack
 * Framework: Flask
 * Database Driver: psycopg2-binary
-* ORM: Flask-SQLAlchemy (PostgreSQL)
+* Dedicated ORM: Flask-SQLAlchemy (PostgreSQL)
 
-### Deployment
+### Quick Start and Deployment
 
 #### Prerequisites
-Before setting up the project locally, ensure you have Python 3.8+ and a running PostgreSQL instance installed on your machine.
+Before starting the local setup, ensure you have Python 3.8+ installed and a running instance of the PostgreSQL DBMS server.
 
-#### Local Installation and Setup
+#### Step-by-Step Installation
 1. Clone the repository and navigate to the project root folder:
    ```bash
    git clone https://github.com
@@ -37,21 +37,21 @@ Before setting up the project locally, ensure you have Python 3.8+ and a running
    # For Windows Git Bash: source venv/Scripts/activate
    ```
 
-3. Install all required project dependencies from the configuration file:
+3. Install the required project dependencies from the requirements file:
    ```bash
    pip install -r requirements.txt
    ```
 
 #### Running the Application
-To run the Flask development server locally, execute the main script directly using Python:
+To run the local Flask development server, execute the main script directly using Python:
 ```bash
 python main.py
 ```
-By default, the server will initialize and become accessible at http://127.0.0.1:5000/
+Upon a successful launch, the application will become available for sending requests at: http://127.0.0.1:5000/
 
 ---
 
-### Аннотация проекта (Overview)
+### Аннотация
 BlogPoint — это информационный веб-сайт и сборник статей о туризме в Красноярском Крае с возможностью размещения и продвижения услуг профессиональных гидов.
 
 Архитектура бэкенда реализует бизнес-логику для трех ключевых ролей пользователей, определенных диаграммой прецедентов:
@@ -61,7 +61,7 @@ BlogPoint — это информационный веб-сайт и сборн�
 
 Данный репозиторий представляет собой серверную часть (REST API), разработанную на языке Python.
 
-### Технологический стек
+### Стек
 * Фреймворк: Flask
 * Драйвер базы данных: psycopg2-binary
 * Направленная ORM: Flask-SQLAlchemy (PostgreSQL)
