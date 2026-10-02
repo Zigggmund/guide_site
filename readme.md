@@ -3,14 +3,15 @@
 ---
 
 ### Overview
-BlogPoint is an information website and a collection of articles about tourism in the Krasnoyarsk Territory, featuring an integrated system for listing and promoting professional guide services. 
+This is an information website and a collection of articles about tourism in the Krasnoyarsk Territory, featuring an integrated system for listing and promoting professional guide services. 
 
-The backend architecture implements business logic for three key user roles defined by the use case diagram:
+Four key user roles are implemented:
 * Guide: Has the ability to create, edit, and publish advertisements for their tourism services.
 * User: Can browse general information about the website, read articles, and view guide offers. Authorized users gain access to writing comments under articles and advertisements.
-* Administrator: Holds moderation privileges for the platform, including deleting inappropriate advertisements or comments, as well as managing user profiles (deleting users).
+* Moderator: Holds moderation privileges for the platform, including deleting inappropriate advertisements or comments, as well as managing user profiles (deleting users).
+* Administrator: Extends the moderator role and can additionally grant or revoke moderator roles.
 
-This repository represents the server-side backend developed in Python using the Flask framework.
+This repository represents the server-side backend (REST API) developed in Python using the Flask framework.
 
 ### Tech Stack
 * Framework: Flask
@@ -52,12 +53,13 @@ Upon a successful launch, the application will become available for sending requ
 ---
 
 ### Аннотация
-BlogPoint — это информационный веб-сайт и сборник статей о туризме в Красноярском Крае с возможностью размещения и продвижения услуг профессиональных гидов.
+Это информационный веб-сайт и сборник статей о туризме в Красноярском Крае с возможностью размещения и продвижения услуг профессиональных гидов.
 
-Архитектура бэкенда реализует бизнес-логику для трех ключевых ролей пользователей, определенных диаграммой прецедентов:
+Реализованы три ключевые роли пользователей:
 * Гид: Имеет возможность создавать, редактировать и публиковать объявления о своих туристических услугах.
 * Пользователь: Может просматривать общую информацию о сайте, читать статьи и изучать предложения гидов. Авторизованные пользователи получают доступ к написанию комментариев к статьям и объявлениям.
-* Администратор: Обладает правами модерации платформы, включая удаление некорректных объявлений, комментариев, а также управление профилями пользователей (удаление пользователей).
+* Модератор: Обладает правами модерации платформы, включая удаление некорректных объявлений, комментариев, а также управление профилями пользователей (удаление пользователей).
+* Администратор: Расширяет роль модератора, может дополнительно выдавать/забирать роли модераторов.
 
 Данный репозиторий представляет собой серверную часть (REST API), разработанную на языке Python.
 
